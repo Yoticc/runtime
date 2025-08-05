@@ -6,7 +6,6 @@ using System.Runtime.InteropServices;
 
 namespace System.Management
 {
-    //CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC//
     /// <summary>
     /// <para> Represents a collection of <see cref='System.Management.QualifierData'/> objects.</para>
     /// </summary>
@@ -47,7 +46,6 @@ namespace System.Management
     ///       End Class
     ///    </code>
     /// </example>
-    //CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC//
     public class QualifierDataCollection : ICollection, IEnumerable
     {
         private readonly ManagementBaseObject parent;
@@ -102,9 +100,6 @@ namespace System.Management
             return qualifierSet;
         }
 
-        //
-        //ICollection
-        //
 
         /// <summary>
         /// <para>Gets or sets the number of <see cref='System.Management.QualifierData'/> objects in the <see cref='System.Management.QualifierDataCollection'/>.</para>
@@ -230,9 +225,6 @@ namespace System.Management
             CopyTo((Array)qualifierArray, index);
         }
 
-        //
-        // IEnumerable
-        //
         IEnumerator IEnumerable.GetEnumerator()
         {
             return (IEnumerator)(new QualifierDataEnumerator(parent, propertyOrMethodName, qualifierSetType));
@@ -395,9 +387,6 @@ namespace System.Management
         }
 
 
-        //
-        //Methods
-        //
 
         /// <summary>
         /// <para> Gets the specified <see cref='System.Management.QualifierData'/> from the <see cref='System.Management.QualifierDataCollection'/>.</para>

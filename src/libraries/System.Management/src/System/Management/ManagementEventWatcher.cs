@@ -17,10 +17,8 @@ namespace System.Management
     /// </summary>
     public delegate void StoppedEventHandler(object sender, StoppedEventArgs e);
 
-    //CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC//
     /// <summary>
-    ///    <para> Subscribes to temporary event notifications
-    ///       based on a specified event query.</para>
+    ///    <para> Subscribes to temporary event notifications based on a specified event query.</para>
     /// </summary>
     /// <example>
     ///    <code lang='C#'>using System;
@@ -108,11 +106,9 @@ namespace System.Management
     /// End Class
     ///    </code>
     /// </example>
-    //CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC//
     [ToolboxItem(false)]
     public class ManagementEventWatcher : Component
     {
-        //fields
         private ManagementScope scope;
         private EventQuery query;
         private EventWatcherOptions options;
@@ -131,7 +127,6 @@ namespace System.Management
             Stop();
         }
 
-        //default constructor
         /// <overload>
         ///    Initializes a new instance of the <see cref='System.Management.ManagementEventWatcher'/> class.
         /// </overload>
@@ -141,7 +136,6 @@ namespace System.Management
         /// </summary>
         public ManagementEventWatcher() : this((ManagementScope)null, null, null) { }
 
-        //parameterized constructors
         /// <summary>
         /// <para>Initializes a new instance of the <see cref='System.Management.ManagementEventWatcher'/> class when given a WMI event query.</para>
         /// </summary>
@@ -256,9 +250,6 @@ namespace System.Management
                 query.IdentifierChanged -= new IdentifierChangedEventHandler(HandleIdentifierChange);
         }
 
-        //
-        // Events
-        //
 
         /// <summary>
         ///    <para> Occurs when a new event arrives.</para>
@@ -270,9 +261,6 @@ namespace System.Management
         /// </summary>
         public event StoppedEventHandler Stopped;
 
-        //
-        //Public Properties
-        //
 
         /// <summary>
         ///    <para>Gets or sets the scope in which to watch for events (namespace or scope).</para>
@@ -364,9 +352,9 @@ namespace System.Management
                         oldOptions.IdentifierChanged -= new IdentifierChangedEventHandler(HandleIdentifierChange);
 
                     cachedObjects = new IWbemClassObjectFreeThreaded[options.BlockSize];
-                    //register for change events in this object
+                    // register for change events in this object
                     options.IdentifierChanged += new IdentifierChangedEventHandler(HandleIdentifierChange);
-                    //the options property has changed so act like we fired the event
+                    // the options property has changed so act like we fired the event
                     HandleIdentifierChange(this, null);
                 }
                 else
@@ -375,8 +363,7 @@ namespace System.Management
         }
 
         /// <summary>
-        ///    <para>Waits for the next event that matches the specified query to arrive, and
-        ///       then returns it.</para>
+        ///    <para>Waits for the next event that matches the specified query to arrive, and then returns it.</para>
         /// </summary>
         /// <returns>
         /// <para>A <see cref='System.Management.ManagementBaseObject'/> representing the
@@ -401,7 +388,7 @@ namespace System.Management
 
                 try
                 {
-                    if (null == enumWbem)   //don't have an enumerator yet - get it
+                    if (null == enumWbem) // don't have an enumerator yet - get it
                     {
                         //Execute the query
                         status = scope.GetSecuredIWbemServicesHandler(Scope.GetIWbemServices()).ExecNotificationQuery_(
@@ -626,9 +613,7 @@ namespace System.Management
                 HackToCreateStubInMTA(this);
             else
             {
-                //
                 // Ensure we are able to trap exceptions from worker thread.
-                //
                 ThreadDispatch disp = new ThreadDispatch(new ThreadDispatch.ThreadWorkerMethodWithParam(HackToCreateStubInMTA));
                 disp.Parameter = this;
                 disp.Start();
@@ -692,11 +677,9 @@ namespace System.Management
         // Instead of calling it from SetStatus, we use ThreadPool.QueueUserWorkItem
         private void Cancel2(object o)
         {
-            //
             // Try catch the call to cancel. In this case the cancel is being done without the client
             // knowing about it so catching all exceptions is not a bad thing to do. If a client calls
             // Stop (which calls Cancel), they will still receive any exceptions that may have occurred.
-            //
             try
             {
                 Cancel();
@@ -738,11 +721,9 @@ namespace System.Management
             {
                 lock (this)
                 {
-                    /*
-                     * We force a release of the stub here so as to allow
-                     * unsecapp.exe to die as soon as possible.
-                     * however if it is local, unsecap won't be started
-                     */
+                    // We force a release of the stub here so as to allow
+                    // unsecapp.exe to die as soon as possible.
+                    // however if it is local, unsecap won't be started
                     if (null != stub)
                     {
                         try

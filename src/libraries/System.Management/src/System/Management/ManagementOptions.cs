@@ -107,7 +107,6 @@ namespace System.Management
         UpdateOrCreate = 3
     }
 
-    //CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC//
     /// <summary>
     ///    <para>
     ///       Provides an abstract base class for all Options objects.</para>
@@ -115,7 +114,6 @@ namespace System.Management
     ///    <para>Use one of the Options classes derived from this class, as
     ///       indicated by the signature of the operation being performed.</para>
     /// </summary>
-    //CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC//
     [TypeConverter(typeof(ExpandableObjectConverter))]
     public abstract class ManagementOptions : ICloneable
     {
@@ -142,8 +140,7 @@ namespace System.Management
         internal void HandleIdentifierChange(object sender,
                             IdentifierChangedEventArgs args)
         {
-            //Something inside ManagementOptions changed, we need to fire an event
-            //to the parent object
+            //Something inside ManagementOptions changed, we need to fire an event to the parent object
             FireIdentifierChanged();
         }
 
@@ -262,7 +259,6 @@ namespace System.Management
     }
 
 
-    //CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC//
     /// <summary>
     ///    <para>Provides a base class for query and enumeration-related options
     ///       objects.</para>
@@ -308,7 +304,6 @@ namespace System.Management
     /// End Class
     ///    </code>
     /// </example>
-    //CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC//
     public class EnumerationOptions : ManagementOptions
     {
         private int blockSize;
@@ -515,7 +510,7 @@ namespace System.Management
 
 
 
-        //Constructor that specifies flags as individual values - we need to set the flags accordingly !
+        //Constructor that specifies flags as individual values - we need to set the flags accordingly!
         /// <summary>
         /// <para>Initializes a new instance of the <see cref='System.Management.EnumerationOptions'/> class to be used for queries or enumerations,
         ///    allowing the user to specify values for the different options.</para>
@@ -573,7 +568,6 @@ namespace System.Management
 
 
 
-    //CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC//
     /// <summary>
     ///    <para> Specifies options for management event watching.</para>
     ///    <para>Use this class to customize subscriptions for watching management events. </para>
@@ -657,7 +651,6 @@ namespace System.Management
     /// End Class
     ///    </code>
     /// </example>
-    //CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC//
     public class EventWatcherOptions : ManagementOptions
     {
         private int blockSize = 1;
@@ -723,7 +716,6 @@ namespace System.Management
 
 
 
-    //CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC//
     /// <summary>
     ///    <para> Specifies options for getting a management object.</para>
     ///    Use this class to customize retrieval of a management object.
@@ -772,7 +764,6 @@ namespace System.Management
     /// End Class
     ///    </code>
     /// </example>
-    //CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC//
     public class ObjectGetOptions : ManagementOptions
     {
         internal static ObjectGetOptions _Clone(ObjectGetOptions options)
@@ -865,7 +856,6 @@ namespace System.Management
         }
     }
 
-    //CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC//
     /// <summary>
     ///    <para> Specifies options for committing management
     ///       object changes.</para>
@@ -928,7 +918,6 @@ namespace System.Management
     /// End Class
     ///    </code>
     /// </example>
-    //CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC//
     public class PutOptions : ManagementOptions
     {
 
@@ -1025,7 +1014,6 @@ namespace System.Management
         }
     }
 
-    //CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC//
     /// <summary>
     ///    <para> Specifies options for deleting a management
     ///       object.</para>
@@ -1075,7 +1063,6 @@ namespace System.Management
     /// End Class
     ///    </code>
     /// </example>
-    //CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC//
     public class DeleteOptions : ManagementOptions
     {
         /// <overload>
@@ -1112,7 +1099,6 @@ namespace System.Management
         }
     }
 
-    //CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC//
     /// <summary>
     ///    <para> Specifies options for invoking a management method.</para>
     ///    <para>Use this class to customize the execution of a method on a management
@@ -1162,7 +1148,6 @@ namespace System.Management
     /// End Class
     ///    </code>
     /// </example>
-    //CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC//
     public class InvokeMethodOptions : ManagementOptions
     {
         /// <overload>
@@ -1200,7 +1185,6 @@ namespace System.Management
     }
 
 
-    //CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC//
     /// <summary>
     ///    <para> Specifies all settings required to make a WMI connection.</para>
     ///    <para>Use this class to customize a connection to WMI made via a
@@ -1260,7 +1244,6 @@ namespace System.Management
     /// End Class
     ///    </code>
     /// </example>
-    //CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC//
     public class ConnectionOptions : ManagementOptions
     {
 
@@ -1270,7 +1253,6 @@ namespace System.Management
         internal const AuthenticationLevel DEFAULTAUTHENTICATION = AuthenticationLevel.Unchanged;
         internal const bool DEFAULTENABLEPRIVILEGES = false;
 
-        //Fields
         private string locale;
         private string username;
         private SecureString securePassword;
@@ -1280,9 +1262,6 @@ namespace System.Management
         private bool enablePrivileges;
 
 
-        //
-        //Properties
-        //
 
         /// <summary>
         ///    <para>Gets or sets the locale to be used for the connection operation.</para>
@@ -1538,11 +1517,7 @@ namespace System.Management
             }
         }
 
-        //
-        //Constructors
-        //
 
-        //default
         /// <overload>
         /// <para>Initializes a new instance of the <see cref='System.Management.ConnectionOptions'/> class.</para>
         /// </overload>
@@ -1557,7 +1532,6 @@ namespace System.Management
         { }
 
 
-        //parameterized
         /// <summary>
         /// <para> Initializes a new instance of the <see cref='System.Management.ConnectionOptions'/> class to be used for a WMI
         ///    connection, using the specified values.</para>
@@ -1601,7 +1575,6 @@ namespace System.Management
             if (authentication != 0)
                 this.authentication = authentication;
         }
-        //parameterized
         /// <summary>
         /// <para> Initializes a new instance of the <see cref='System.Management.ConnectionOptions'/> class to be used for a WMI
         ///    connection, using the specified values.</para>
@@ -1658,9 +1631,6 @@ namespace System.Management
                     authority, impersonation, authentication, enablePrivileges, newContext, Timeout);
         }
 
-        //
-        //Methods
-        //
 
         internal IntPtr GetPassword()
         {

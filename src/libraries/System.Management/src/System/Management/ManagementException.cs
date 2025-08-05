@@ -79,8 +79,7 @@ namespace System.Management
         /// </summary>
         AccessDenied                    = unchecked((int)0x80041003),
         /// <summary>
-        ///    <para> The provider failed after
-        ///       initialization. </para>
+        ///    <para> The provider failed after initialization. </para>
         /// </summary>
         ProviderFailure                 = unchecked((int)0x80041004),
         /// <summary>
@@ -101,8 +100,7 @@ namespace System.Management
         /// </summary>
         InvalidParameter                = unchecked((int)0x80041008),
         /// <summary>
-        ///    <para> The resource, typically a remote server, is not
-        ///       currently available. </para>
+        ///    <para> The resource, typically a remote server, is not currently available. </para>
         /// </summary>
         NotAvailable                    = unchecked((int)0x80041009),
         /// <summary>
@@ -653,7 +651,6 @@ namespace System.Management
                     errorCode = ((ManagementException)e).ErrorCode;
 
                     // May/may not have extended error info.
-                    //
                     if (errorObject != null)
                         errorObject = (ManagementBaseObject)((ManagementException)e).errorObject.Clone();
                     else
@@ -739,8 +736,7 @@ namespace System.Management
 
             if (e is COMException)
             {
-                // Try and get WMI error message. If not use the one in
-                // the exception
+                // Try and get WMI error message. If not use the one in the exception
                 msg = GetMessage((ManagementStatus)((COMException)e).ErrorCode);
             }
 
@@ -763,8 +759,7 @@ namespace System.Management
                 {
                     hr = statusCode.GetErrorCodeText_((int)errorCode, 0, 1, out msg);
 
-                    // Just in case it didn't like the flag=1, try it again
-                    // with flag=0.
+                    // Just in case it didn't like the flag=1, try it again with flag=0.
                     if (hr != 0)
                         hr = statusCode.GetErrorCodeText_((int)errorCode, 0, 0, out msg);
                 }

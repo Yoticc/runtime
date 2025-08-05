@@ -9,7 +9,6 @@ using System.Reflection;
 
 namespace System.Management
 {
-    //CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC//
     /// <summary>
     ///    <para> Provides an abstract base class for all management query objects.</para>
     /// </summary>
@@ -17,7 +16,6 @@ namespace System.Management
     ///    <para> This class is abstract; only
     ///       derivatives of it are actually used in the API.</para>
     /// </remarks>
-    //CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC//
     [TypeConverter(typeof(ManagementQueryConverter))]
     public abstract class ManagementQuery : ICloneable
     {
@@ -42,10 +40,8 @@ namespace System.Management
             queryString = qString;
         }
 
-        //default constructor
         internal ManagementQuery() : this(DEFAULTQUERYLANGUAGE, null) { }
 
-        //parameterized constructors
         internal ManagementQuery(string query) : this(DEFAULTQUERYLANGUAGE, query) { }
         internal ManagementQuery(string language, string query)
         {
@@ -59,9 +55,6 @@ namespace System.Management
         /// <param name="query">The query string to be parsed.</param>
         protected internal virtual void ParseQuery(string query) { }
 
-        //
-        //properties
-        //
         /// <summary>
         ///    <para>Gets or sets the query in text format.</para>
         /// </summary>
@@ -106,7 +99,6 @@ namespace System.Management
             }
         }
 
-        //ICloneable
         /// <summary>
         ///    <para>Returns a copy of the object.</para>
         /// </summary>
@@ -158,7 +150,6 @@ namespace System.Management
     }
 
 
-    //CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC//
     /// <summary>
     ///    <para> Represents a management query that returns instances or classes.</para>
     /// </summary>
@@ -206,7 +197,6 @@ namespace System.Management
     /// End Class
     ///    </code>
     /// </example>
-    //CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC//
     public class ObjectQuery : ManagementQuery
     {
         /// <overload>
@@ -250,7 +240,6 @@ namespace System.Management
     }
 
 
-    //CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC//
     /// <summary>
     ///    <para> Represents a WMI event query.</para>
     /// </summary>
@@ -419,7 +408,6 @@ namespace System.Management
     /// End Class
     ///    </code>
     /// </example>
-    //CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC//
     public class EventQuery : ManagementQuery
     {
         /// <overload>
@@ -461,7 +449,6 @@ namespace System.Management
     }
 
 
-    //CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC//
     /// <summary>
     ///    <para> Represents a WMI data query in WQL format.</para>
     /// </summary>
@@ -508,10 +495,8 @@ namespace System.Management
     /// End Class
     ///    </code>
     /// </example>
-    //CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC//
     public class WqlObjectQuery : ObjectQuery
     {
-        //constructors
         //Here we don't take a language argument but hard-code it to WQL in the base class
         /// <overload>
         /// <para>Initializes a new instance of the <see cref='System.Management.WqlObjectQuery'/> class.</para>
@@ -543,7 +528,6 @@ namespace System.Management
             { return base.QueryLanguage; }
         }
 
-        //ICloneable
         /// <summary>
         ///    <para>Creates a copy of the object.</para>
         /// </summary>
@@ -561,7 +545,6 @@ namespace System.Management
 
 
 
-    //CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC//
     /// <summary>
     ///    <para> Represents a WQL SELECT data query.</para>
     /// </summary>
@@ -605,7 +588,6 @@ namespace System.Management
     /// End Class
     ///    </code>
     /// </example>
-    //CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC//
     public class SelectQuery : WqlObjectQuery
     {
         private bool isSchemaQuery;
@@ -613,7 +595,6 @@ namespace System.Management
         private string condition;
         private StringCollection selectedProperties;
 
-        //default constructor
         /// <overload>
         /// <para>Initializes a new instance of the <see cref='System.Management.SelectQuery'/>
         /// class.</para>
@@ -625,7 +606,6 @@ namespace System.Management
         /// </summary>
         public SelectQuery() : this(null) { }
 
-        //parameterized constructors
         //ISSUE : We have 2 possible constructors that take a single string :
         //  one that takes the full query string and the other that takes the class name.
         //  We resolve this by trying to parse the string, if it succeeds we assume it's the query, if
@@ -658,7 +638,6 @@ namespace System.Management
             if (null != queryOrClassName)
             {
                 // Minimally determine if the string is a query or class name.
-                //
                 if (queryOrClassName.TrimStart().StartsWith(TokenSelect, StringComparison.OrdinalIgnoreCase))
                 {
                     // Looks to be a query - do further checking.
@@ -668,7 +647,6 @@ namespace System.Management
                 else
                 {
                     // Do some basic sanity checking on whether it's a class name
-                    //
 
                     ManagementPath p = new ManagementPath(queryOrClassName);
 
@@ -1124,7 +1102,6 @@ namespace System.Management
     }
 
 
-    //CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC//
     /// <summary>
     ///    <para> Represents a WQL ASSOCIATORS OF data query.
     ///       It can be used for both instances and schema queries.</para>
@@ -1177,7 +1154,6 @@ namespace System.Management
     /// End Class
     ///    </code>
     /// </example>
-    //CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC//
     public class RelatedObjectQuery : WqlObjectQuery
     {
         private const string TokenAssociators = "associators";
@@ -1203,7 +1179,6 @@ namespace System.Management
         private bool classDefinitionsOnly;
 
 
-        //default constructor
         /// <overload>
         ///    Initializes a new instance
         ///    of the <see cref='System.Management.RelatedObjectQuery'/> class.
@@ -1214,7 +1189,6 @@ namespace System.Management
         /// </summary>
         public RelatedObjectQuery() : this(null) { }
 
-        //parameterized constructor
         //ISSUE : We have 2 possible constructors that take a single string :
         //  one that takes the full query string and the other that takes the source object path.
         //  We resolve this by trying to parse the string, if it succeeds we assume it's the query, if
@@ -1254,11 +1228,9 @@ namespace System.Management
             if (null != queryOrSourceObject)
             {
                 // Minimally determine if the string is a query or instance name.
-                //
                 if (queryOrSourceObject.TrimStart().StartsWith(TokenAssociators, StringComparison.OrdinalIgnoreCase))
                 {
                     // Looks to be a query - do further checking.
-                    //
                     QueryString = queryOrSourceObject;    // Parse/validate; may throw.
                 }
                 else
@@ -1267,7 +1239,6 @@ namespace System.Management
                     // class or instance?
                     //
                     // Do some basic sanity checking on whether it's a class/instance name
-                    //
 
                     ManagementPath p = new ManagementPath(queryOrSourceObject);
 
@@ -1754,7 +1725,6 @@ namespace System.Management
         }
 
 
-        //ICloneable
         /// <summary>
         ///    <para>Creates a copy of the object.</para>
         /// </summary>
@@ -1777,7 +1747,6 @@ namespace System.Management
     }
 
 
-    //CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC//
     /// <summary>
     ///    <para> Represents a WQL REFERENCES OF data query.</para>
     /// </summary>
@@ -1822,7 +1791,6 @@ namespace System.Management
     ///    </code>
     /// </example>
 
-    //CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC//
     public class RelationshipQuery : WqlObjectQuery
     {
         private const string TokenReferences = "references";
@@ -1841,7 +1809,6 @@ namespace System.Management
         private bool classDefinitionsOnly;
         private bool isSchemaQuery;
 
-        //default constructor
         /// <overload>
         ///    Initializes a new instance
         ///    of the <see cref='System.Management.RelationshipQuery'/> class.
@@ -1851,7 +1818,6 @@ namespace System.Management
         /// </summary>
         public RelationshipQuery() : this(null) { }
 
-        //parameterized constructor
         //ISSUE : We have 2 possible constructors that take a single string :
         //  one that takes the full query string and the other that takes the source object path.
         //  We resolve this by trying to parse the string, if it succeeds we assume it's the query, if
@@ -2260,7 +2226,6 @@ namespace System.Management
         }
 
 
-        //ICloneable
         /// <summary>
         ///    <para>Creates a copy of the object.</para>
         /// </summary>
@@ -2280,7 +2245,6 @@ namespace System.Management
     }
 
 
-    //CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC//
     /// <summary>
     ///    <para> Represents a WMI event query in WQL format.</para>
     /// </summary>
@@ -2419,7 +2383,6 @@ namespace System.Management
     /// End Class
     ///    </code>
     /// </example>
-    //CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC//
     public class WqlEventQuery : EventQuery
     {
         private const string TokenSelectAll = "select * ";
@@ -2431,7 +2394,6 @@ namespace System.Management
         private StringCollection groupByPropertyList;
         private string havingCondition;
 
-        //default constructor
         /// <overload>
         /// <para> Initializes a new instance of the <see cref='System.Management.WqlEventQuery'/> class.</para>
         /// </overload>
@@ -2442,7 +2404,6 @@ namespace System.Management
         /// </summary>
         public WqlEventQuery() : this(null, TimeSpan.Zero, null, TimeSpan.Zero, null, null) { }
 
-        //parameterized constructors
         //ISSUE : We have 2 possible constructors that take a single string :
         //  one that takes the full query string and the other that takes the class name.
         //  We resolve this by trying to parse the string, if it succeeds we assume it's the query, if
@@ -2724,8 +2685,7 @@ namespace System.Management
         {
             get
             {
-                // We need to force a rebuild as we may not have detected
-                // a change to selected properties
+                // We need to force a rebuild as we may not have detected a change to selected properties
                 BuildQuery();
                 return base.QueryString;
             }
@@ -3134,7 +3094,6 @@ namespace System.Management
         }
 
 
-        //ICloneable
         /// <summary>
         ///    <para>Creates a copy of the object.</para>
         /// </summary>

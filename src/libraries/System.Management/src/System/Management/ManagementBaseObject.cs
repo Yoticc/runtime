@@ -169,12 +169,10 @@ namespace System.Management
     }
 
 
-    //CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC//
     /// <summary>
     ///    <para> Contains the basic elements of a management
     ///       object. It serves as a base class to more specific management object classes.</para>
     /// </summary>
-    //CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC//
     [ToolboxItem(false)]
     public class ManagementBaseObject : Component, ICloneable, ISerializable
     {
@@ -188,14 +186,12 @@ namespace System.Management
 #pragma warning restore CS0169
 #pragma warning restore CA1823
 
-        //
         // The wbemObject is changed from a field to a property. This is to avoid major code churn and simplify the solution to
         // the problem where the Initialize call actually binds to the object. This occurred even in cases like Get() whereby we
         // ended up getting the object twice. Any direct usage of this property will cause a call to Initialize ( true ) to be made
         // (if not already done) indicating that we wish to bind to the underlying WMI object.
         //
         // See changes to Initialize
-        //
         internal IWbemClassObjectFreeThreaded wbemObject
         {
             get
@@ -274,7 +270,6 @@ namespace System.Management
             throw new PlatformNotSupportedException();
         }
 
-        // Factory
         /// <summary>
         /// Factory for various types of base object
         /// </summary>
@@ -294,7 +289,6 @@ namespace System.Management
             return newObject;
         }
 
-        //Constructor
         internal ManagementBaseObject(IWbemClassObjectFreeThreaded wbemObject)
         {
             this.wbemObject = wbemObject;
@@ -328,9 +322,6 @@ namespace System.Management
 
         internal virtual void Initialize(bool getObject) { }
 
-        //
-        //Properties
-        //
 
         /// <summary>
         /// <para>Gets or sets a collection of <see cref='System.Management.PropertyData'/> objects describing the properties of the
@@ -453,9 +444,6 @@ namespace System.Management
         }
 
 
-        //
-        //Methods
-        //
 
         /// <summary>
         ///    <para> Gets access to property values through [] notation.</para>
@@ -562,10 +550,8 @@ namespace System.Management
             string objText = null;
             int status = (int)ManagementStatus.NoError;
 
-            //
             // Removed Initialize call since wbemObject is a property that will call Initialize ( true ) on
             // its getter.
-            //
             switch (format)
             {
                 case TextFormat.Mof:

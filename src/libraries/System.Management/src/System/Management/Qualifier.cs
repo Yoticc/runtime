@@ -6,7 +6,6 @@ using System.Runtime.InteropServices;
 
 namespace System.Management
 {
-    //CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC//
     /// <summary>
     ///    <para> Contains information about a WMI qualifier.</para>
     /// </summary>
@@ -43,7 +42,6 @@ namespace System.Management
     /// End Class
     ///    </code>
     /// </example>
-    //CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC//
     public class QualifierData
     {
         private readonly ManagementBaseObject parent;  //need access to IWbemClassObject pointer to be able to refresh qualifiers

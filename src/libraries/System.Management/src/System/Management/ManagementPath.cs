@@ -86,7 +86,6 @@ namespace System.Management
             IdentifierChanged?.Invoke(this, null);
         }
 
-        //internal factory
         /// <summary>
         /// Internal static "factory" method for making a new ManagementPath
         /// from the system property of a WMI object
@@ -242,7 +241,6 @@ namespace System.Management
             set { ManagementPath.defaultPath = value; }
         }
 
-        //private members
         private IWbemPath wmiPath;
 
         private IWbemPath CreateWbemPath(string path)
@@ -395,9 +393,6 @@ namespace System.Management
         }
 
 
-        //
-        // Methods
-        //
 
         /// <summary>
         ///    <para> Sets the path as a new class path. This means that the path must have
@@ -443,9 +438,6 @@ namespace System.Management
                 throw new ManagementException(ManagementStatus.InvalidOperation, null, null);
         }
 
-        //
-        // Properties
-        //
 
         /// <summary>
         ///    <para> Gets or sets the string representation of the full path in the object.</para>
@@ -733,10 +725,8 @@ namespace System.Management
             }
             else {; }    // Continue on. Could have different server name, same ns specified.
 
-            //
             // Update Server property if specified in the namespace.
             // eg: "\\MyServer\root\cimv2".
-            //
             if (status >= 0 && nsPath.Length > 1 &&
                 (nsPath[0] == '\\' && nsPath[1] == '\\' ||
                 nsPath[0] == '/' && nsPath[1] == '/'))

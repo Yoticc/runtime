@@ -45,9 +45,7 @@ namespace System.Management
             pathParameter = path;
             classNameParameter = className;
 
-            //
             // Ensure we are able to trap exceptions from worker thread.
-            //
             ThreadDispatch disp = new ThreadDispatch(new ThreadDispatch.ThreadWorkerMethod(HackToCreateWmiEventSink));
             disp.Start();
 
@@ -218,10 +216,8 @@ namespace System.Management
         {
             try
             {
-                /*
-                 * We force a release of the stub here so as to allow
-                 * unsecapp.exe to die as soon as possible.
-                 */
+                // We force a release of the stub here so as to allow
+                // unsecapp.exe to die as soon as possible.
                 if (null != stub)
                 {
                     System.Runtime.InteropServices.Marshal.ReleaseComObject(stub);
@@ -260,9 +256,7 @@ namespace System.Management
             scopeParameter = scope;
             managementObjectParameter = managementObject;
 
-            //
             // Ensure we are able to trap exceptions from worker thread.
-            //
             ThreadDispatch disp = new ThreadDispatch(new ThreadDispatch.ThreadWorkerMethod(HackToCreateWmiGetEventSink));
             disp.Start();
 

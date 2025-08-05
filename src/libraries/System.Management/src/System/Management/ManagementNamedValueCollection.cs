@@ -7,32 +7,28 @@ using System.Runtime.Serialization;
 
 namespace System.Management
 {
-    //CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC//
     /// <summary>
     ///    <para> Represents a collection of named values
     ///       suitable for use as context information to WMI operations. The
     ///       names are case-insensitive.</para>
     /// </summary>
-    //CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC//
     public class ManagementNamedValueCollection : NameObjectCollectionBase
     {
         // Notification of when the content of this collection changes
         internal event IdentifierChangedEventHandler IdentifierChanged;
 
-        //Fires IdentifierChanged event
+        // Fires IdentifierChanged event
         private void FireIdentifierChanged()
         {
             IdentifierChanged?.Invoke(this, null);
         }
 
-        //default constructor
         /// <overload>
-        ///    Initializes a new instance
-        ///    of the <see cref='System.Management.ManagementNamedValueCollection'/> class.
+        ///    Initializes a new instance of the <see cref='System.Management.ManagementNamedValueCollection'/> class.
         /// </overload>
         /// <summary>
-        /// <para> Initializes a new instance of the <see cref='System.Management.ManagementNamedValueCollection'/> class, which is empty. This is
-        ///    the default constructor.</para>
+        /// <para> Initializes a new instance of the <see cref='System.Management.ManagementNamedValueCollection'/> class, which is empty.
+        ///    This is the default constructor.</para>
         /// </summary>
         public ManagementNamedValueCollection()
         {
@@ -56,8 +52,7 @@ namespace System.Management
         }
 
         /// <summary>
-        ///    <para>Internal method to return an IWbemContext representation
-        ///    of the named value collection.</para>
+        ///    <para>Internal method to return an IWbemContext representation of the named value collection.</para>
         /// </summary>
         internal IWbemContext GetContext()
         {
@@ -180,8 +175,7 @@ namespace System.Management
         /// </summary>
         /// <param name=' name'>The name of the value to be returned.</param>
         /// <value>
-        /// <para>An <see cref='object'/> containing the
-        ///    value of the specified item in this collection.</para>
+        /// <para>An <see cref='object'/> containing the value of the specified item in this collection.</para>
         /// </value>
         public object this[string name]
         {

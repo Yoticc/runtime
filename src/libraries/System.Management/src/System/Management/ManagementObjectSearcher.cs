@@ -7,7 +7,6 @@ using System.Runtime.InteropServices;
 namespace System.Management
 {
 
-    //CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC//
     /// <summary>
     ///    <para> Retrieves a collection of management objects based
     ///       on a specified query.</para>
@@ -59,16 +58,13 @@ namespace System.Management
     /// End Class
     ///    </code>
     /// </example>
-    //CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC//
     [ToolboxItem(false)]
     public class ManagementObjectSearcher : Component
     {
-        //fields
         private ManagementScope scope;
         private ObjectQuery query;
         private EnumerationOptions options;
 
-        //default constructor
         /// <overload>
         ///    Initializes a new instance of the <see cref='System.Management.ManagementObjectSearcher'/> class.
         /// </overload>
@@ -218,9 +214,6 @@ namespace System.Management
         }
 
 
-        //
-        //Public Properties
-        //
 
         /// <summary>
         ///    <para>Gets or sets the scope in which to look for objects (the scope represents a WMI namespace).</para>
@@ -385,7 +378,6 @@ namespace System.Management
             }
 
             //Create a new collection object for the results
-
             return new ManagementObjectCollection(scope, options, ew);
         }
 

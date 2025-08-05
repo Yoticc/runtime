@@ -118,8 +118,7 @@ namespace System.Management
             int second = DateTime.MinValue.Second;
             string dmtf = dmtfDate;
 
-            // If the string passed is empty or null then throw
-            // an exception
+            // If the string passed is empty or null then throw an exception
             if (dmtf == null)
             {
                 throw new ArgumentOutOfRangeException(nameof(dmtfDate));
@@ -408,8 +407,7 @@ namespace System.Management
             string dmtftimespan = timespan.Days.ToString((IFormatProvider)CultureInfo.InvariantCulture.GetFormat(typeof(int))).PadLeft(8, '0');
             IFormatProvider frmInt32 = (IFormatProvider)CultureInfo.InvariantCulture.GetFormat(typeof(int));
 
-            // Days that can be represented is more than what can be represented
-            // then throw an exception
+            // Days that can be represented is more than what can be represented then throw an exception
             // and also negative timespan cannot be represented in DMTF
             if (timespan.Days > MAXDATE_INTIMESPAN || timespan < TimeSpan.Zero)
             {

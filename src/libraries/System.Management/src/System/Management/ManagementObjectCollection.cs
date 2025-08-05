@@ -6,7 +6,6 @@ using System.Runtime.InteropServices;
 
 namespace System.Management
 {
-    //CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC//
     /// <summary>
     ///    <para> Represents different collections of management objects
     ///       retrieved through WMI. The objects in this collection are of <see cref='System.Management.ManagementBaseObject'/>-derived types, including <see cref='System.Management.ManagementObject'/> and <see cref='System.Management.ManagementClass'/>
@@ -54,18 +53,15 @@ namespace System.Management
     /// End Class
     ///    </code>
     /// </example>
-    //CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC//
     public class ManagementObjectCollection : ICollection, IEnumerable, IDisposable
     {
         private static readonly string name = typeof(ManagementObjectCollection).FullName;
 
-        //fields
         internal ManagementScope scope;
         internal EnumerationOptions options;
         private readonly IEnumWbemClassObject enumWbem; //holds WMI enumerator for this collection
         private bool isDisposed;
 
-        //Constructor
         internal ManagementObjectCollection(
             ManagementScope scope,
             EnumerationOptions options,
@@ -116,9 +112,6 @@ namespace System.Management
         }
 
 
-        //
-        //ICollection properties & methods
-        //
 
         /// <summary>
         ///    <para>Represents the number of objects in the collection.</para>
@@ -246,9 +239,6 @@ namespace System.Management
             CopyTo((Array)objectCollection, index);
         }
 
-        //
-        //IEnumerable methods
-        //
 
         /// <summary>
         ///    <para>Returns the enumerator for the collection. If the collection was retrieved from an operation that
@@ -343,11 +333,7 @@ namespace System.Management
 
 
 
-        //
-        // ManagementObjectCollection methods
-        //
 
-        //CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
         /// <summary>
         ///    <para>Represents the enumerator on the collection.</para>
         /// </summary>
@@ -393,7 +379,6 @@ namespace System.Management
         ///       End Class
         ///    </code>
         /// </example>
-        //CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC
         public class ManagementObjectEnumerator : IEnumerator, IDisposable
         {
             private static readonly string name = typeof(ManagementObjectEnumerator).FullName;
@@ -405,7 +390,6 @@ namespace System.Management
             private bool atEndOfCollection;
             private bool isDisposed;
 
-            //constructor
             internal ManagementObjectEnumerator(
                 ManagementObjectCollection collectionObject,
                 IEnumWbemClassObject enumWbem)
@@ -567,12 +551,11 @@ namespace System.Management
                             atEndOfCollection = true;
                             cacheIndex--; //back to last object
 
-                            /* This call to Dispose is being removed as per discussion with URT people and the newly supported
-                             * Dispose() call in the foreach implementation itself.
-                             *
-                             *                              //Release the COM object (so that the user doesn't have to)
-                                                            Dispose();
-                            */
+                            // This call to Dispose is being removed as per discussion with URT people and the newly supported
+                            // Dispose() call in the foreach implementation itself.
+                            //
+                            //    Release the COM object (so that the user doesn't have to)
+                            //    Dispose();
                             return false;
                         }
                     }

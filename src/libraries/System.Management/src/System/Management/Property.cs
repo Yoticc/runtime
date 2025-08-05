@@ -29,7 +29,6 @@ namespace System.Management
         }
     }
 
-    //CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC//
     /// <summary>
     ///    <para> Represents information about a WMI property.</para>
     /// </summary>
@@ -75,7 +74,6 @@ namespace System.Management
     /// End Class
     ///    </code>
     /// </example>
-    //CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC//
     public class PropertyData
     {
         private readonly ManagementBaseObject parent;  //need access to IWbemClassObject pointer to be able to refresh property info

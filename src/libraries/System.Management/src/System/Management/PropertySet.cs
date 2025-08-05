@@ -6,7 +6,6 @@ using System.Runtime.InteropServices;
 
 namespace System.Management
 {
-    //CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC//
     /// <summary>
     ///    <para> Represents the set of properties of a WMI object.</para>
     /// </summary>
@@ -46,7 +45,6 @@ namespace System.Management
     /// End Class
     ///    </code>
     /// </example>
-    //CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC//
     public class PropertyDataCollection : ICollection, IEnumerable
     {
         private readonly ManagementBaseObject parent;
@@ -58,9 +56,6 @@ namespace System.Management
             this.isSystem = isSystem;
         }
 
-        //
-        //ICollection
-        //
 
         /// <summary>
         /// <para>Gets or sets the number of objects in the <see cref='System.Management.PropertyDataCollection'/>.</para>
@@ -178,9 +173,6 @@ namespace System.Management
         {
             CopyTo((Array)propertyArray, index);
         }
-        //
-        // IEnumerable
-        //
         IEnumerator IEnumerable.GetEnumerator()
         {
             return (IEnumerator)(new PropertyDataEnumerator(parent, isSystem));
@@ -323,9 +315,6 @@ namespace System.Management
 
 
 
-        //
-        // Methods
-        //
 
         /// <summary>
         /// <para> Returns the specified property from the <see cref='System.Management.PropertyDataCollection'/>, using [] syntax.</para>

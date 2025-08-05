@@ -22,7 +22,6 @@ namespace System.Management
     #region FreeThreadedInterfaces
     internal sealed class IWbemClassObjectFreeThreaded : IDisposable
     {
-        //
         // This is to force load wminet_utils.dll as a COM component. Since wminet_utils.dll
         // lives in the version framework directory, a direct DllImport will try to load the
         // wminet_utils.dll from the currently set environment path. In certain cases, such as
@@ -30,7 +29,6 @@ namespace System.Management
         // By forcing the DLL to be loaded as a COM DLL, mscoree will go to the registry and get
         // the correct path and succeed in loading the DLL. Once the DllImport occurs, the DLL will
         // already be in the cache.
-        //
         private static readonly string name = typeof(IWbemClassObjectFreeThreaded).FullName;
         public static Guid IID_IWbemClassObject = new Guid("DC12A681-737F-11CF-884D-00AA004B2E24");
 
@@ -1381,16 +1379,14 @@ namespace System.Management
     /// If the worker thread returns a value it is stored in the ThreadDispatch object and accessible to clients via the Result property.
     /// Also, any exception thrown is propagated from worker thread to main thread (by rethrowing orinal exception):
     ///
-    ///     ThreadDispatch disp = new ThreadDispatch ( new ThreadDispatch.ThreadWorkerMethod  ( Class1.Func ) ) ;
-    ///     disp.Start ( ) ;
+    ///     ThreadDispatch dispatch = new ThreadDispatch(new ThreadDispatch.ThreadWorkerMethod(Class1.Func));
+    ///     dispatch.Start();
     ///
     /// Four different delegate types are supported:
-    ///
     ///     1. Delegate with no parameter and no return value.
     ///     2. Delegate with no parameter and return value.
     ///     3. Delegate with parameter and no return value.
     ///     4. Delegate with parameter and return value.
-    ///
     /// </summary>
     internal sealed class ThreadDispatch
     {
@@ -1409,7 +1405,7 @@ namespace System.Management
 
         #region Properties
         /// <summary>
-        /// [Get] Gets the exception associated with the operation performed by thread.
+        /// Gets the exception associated with the operation performed by thread.
         /// This can be null if no exception has been thrown.
         /// </summary>
         public System.Exception Exception
@@ -1421,7 +1417,7 @@ namespace System.Management
         }
 
         /// <summary>
-        /// [Get/Set] The parameter to be used by worker thread. This will typically be a 'this' reference for access to instance members.
+        /// The parameter to be used by worker thread. This will typically be a 'this' reference for access to instance members.
         /// </summary>
         public object Parameter
         {
@@ -1436,7 +1432,7 @@ namespace System.Management
         }
 
         /// <summary>
-        /// [Get/Set] The background property of a thread. Defaults to false.
+        /// The background property of a thread. Defaults to false.
         /// </summary>
         public bool IsBackgroundThread
         {
@@ -1451,7 +1447,7 @@ namespace System.Management
         }
 
         /// <summary>
-        /// [Get] The result of the worker method called.
+        /// The result of the worker method called.
         /// </summary>
         public object Result
         {
@@ -1463,7 +1459,7 @@ namespace System.Management
 
 
         /// <summary>
-        /// [Get/Set] The thread apartment type
+        /// The thread apartment type
         /// </summary>
         public ApartmentState ApartmentType
         {

@@ -9,7 +9,6 @@ using System.Runtime.Serialization;
 
 namespace System.Management
 {
-    //CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC//
     /// <summary>
     ///    <para> Represents a CIM management class from WMI. CIM (Common Information Model) classes
     ///            represent management information including hardware, software, processes, etc.
@@ -46,7 +45,6 @@ namespace System.Management
     /// End Class
     ///    </code>
     /// </example>
-    //CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC//
     public class ManagementClass : ManagementObject
     {
         private MethodDataCollection methods;
@@ -126,14 +124,12 @@ namespace System.Management
             return newClass;
         }
 
-        //default constructor
         /// <overload>
         ///    Initializes a new instance
         ///    of the <see cref='System.Management.ManagementClass'/> class.
         /// </overload>
         /// <summary>
-        /// <para> Initializes a new instance of the <see cref='System.Management.ManagementClass'/> class. This is the
-        ///    default constructor.</para>
+        /// <para> Initializes a new instance of the <see cref='System.Management.ManagementClass'/> class.</para>
         /// </summary>
         /// <example>
         ///    <code lang='C#'>ManagementClass c = new ManagementClass();
@@ -392,9 +388,6 @@ namespace System.Management
             }
         }
 
-        //
-        //Methods
-        //
 
         /// <overload>
         ///    Returns the collection of

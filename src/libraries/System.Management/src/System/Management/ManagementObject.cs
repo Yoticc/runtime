@@ -25,7 +25,6 @@ namespace System.Management
         InternalObjectPutEventArgs e);
 
 
-    //CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC//
     /// <summary>
     ///    <para> Represents a data management object.</para>
     /// </summary>
@@ -60,14 +59,11 @@ namespace System.Management
     /// End Class
     ///    </code>
     /// </example>
-    //CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC//
     public class ManagementObject : ManagementBaseObject, ICloneable
     {
-        // constants
         internal const string ID = "ID";
         internal const string RETURNVALUE = "RETURNVALUE";
 
-        //Fields
 
         private IWbemClassObjectFreeThreaded wmiClass;
         internal ManagementScope scope;
@@ -112,7 +108,6 @@ namespace System.Management
         }
 
         //Fires IdentifierChanged event
-
         internal void FireIdentifierChanged()
         {
             IdentifierChanged?.Invoke(this, null);
@@ -145,7 +140,6 @@ namespace System.Management
             { return _wbemObject != null; }
         }
 
-        //internal constructor
         internal static ManagementObject GetManagementObject(
             IWbemClassObjectFreeThreaded wbemObject,
             ManagementObject mgObj)
@@ -199,7 +193,6 @@ namespace System.Management
             return newObject;
         }
 
-        //default constructor
         /// <overload>
         ///    Initializes a new instance of the <see cref='System.Management.ManagementObject'/> class.
         /// </overload>
@@ -228,7 +221,6 @@ namespace System.Management
         /// </example>
         public ManagementObject() : this((ManagementScope)null, null, null) { }
 
-        //parameterized constructors
         /// <summary>
         /// <para>Initializes a new instance of the <see cref='System.Management.ManagementObject'/> class for the specified WMI
         ///    object path. The path is provided as a <see cref='System.Management.ManagementPath'/>.</para>
@@ -722,9 +714,6 @@ namespace System.Management
             }
         }
 
-        //
-        //Methods
-        //
 
         /// <overload>
         ///    Binds to the management object.
@@ -1497,10 +1486,8 @@ namespace System.Management
 
             try
             {
-                //
                 // Obtain the path from the call result.
                 // Note this will return the relative path at best.
-                //
                 string resultPath = null;
 
                 status = callResult.GetResultString_(
@@ -1514,9 +1501,7 @@ namespace System.Management
                 }
                 else
                 {
-                    //
                     // That didn't work. Use the path in the object instead.
-                    //
                     object pathValue = GetPropertyValue("__PATH");
 
                     // No path? Try Relpath?
@@ -1697,13 +1682,11 @@ namespace System.Management
             IWbemServices wbemServices = destinationScope.GetIWbemServices();
             ManagementPath newPath = null;
 
-            //
             // TO-DO : This code is almost identical to Put - should consolidate.
             //
             // Must do this convoluted allocation since the IWbemServices ref IWbemCallResult
             // has been redefined to be an IntPtr.  Due to the fact that it wasn't possible to
             // pass NULL for the optional argument.
-            //
             IntPtr ppwbemCallResult = IntPtr.Zero;
             IntPtr pwbemCallResult = IntPtr.Zero;
             IWbemCallResult wbemCallResult = null;
@@ -2464,10 +2447,8 @@ namespace System.Management
                 return "";
         }
 
-        //
         // The prototype of Initialize has been changed to accept a bool, indicating whether or not
         // the caller wants to bind to the underlying WMI object in the Initialize call or not.
-        //
         internal override void Initialize(bool getObject)
         {
             bool needToGetObject = false;
@@ -2619,12 +2600,10 @@ namespace System.Management
                     int minIndex = args.GetLowerBound(0);
                     int topId = maxIndex - minIndex;
 
-                    /*
-                     * Iterate through the [in] parameters of the class to find
-                     * the ID positional qualifier. We do this in the class because
-                     * we cannot be sure that the qualifier will be propagated to
-                     * the instance.
-                     */
+                    // Iterate through the [in] parameters of the class to find
+                    // the ID positional qualifier. We do this in the class because
+                    // we cannot be sure that the qualifier will be propagated to
+                    // the instance.
 
                     status = inParamsClass.BeginEnumeration_
                             ((int)tag_WBEM_CONDITION_FLAG_TYPE.WBEM_FLAG_NONSYSTEM_ONLY);
@@ -2703,12 +2682,11 @@ namespace System.Management
                     minIndex = args.GetLowerBound(0);
                     topId = maxIndex - minIndex;
                 }
-                /*
-                    * Iterate through the [out] parameters of the class to find
-                    * the ID positional qualifier. We do this in the class because
-                    * we cannot be sure that the qualifier will be propagated to
-                    * the instance.
-                */
+
+                // Iterate through the [out] parameters of the class to find
+                // the ID positional qualifier. We do this in the class because
+                // we cannot be sure that the qualifier will be propagated to
+                // the instance.
 
                 status = outParamsClass.BeginEnumeration_
                     ((int)tag_WBEM_CONDITION_FLAG_TYPE.WBEM_FLAG_NONSYSTEM_ONLY);

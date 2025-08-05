@@ -6,7 +6,6 @@ using System.Runtime.InteropServices;
 
 namespace System.Management
 {
-    //CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC//
     /// <summary>
     ///    <para> Represents the set of methods available in the collection.</para>
     /// </summary>
@@ -44,7 +43,6 @@ namespace System.Management
     /// End Class
     ///    </code>
     /// </example>
-    //CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC//
     public class MethodDataCollection : ICollection, IEnumerable
     {
         private readonly ManagementObject parent;
@@ -58,9 +56,6 @@ namespace System.Management
             this.parent = parent;
         }
 
-        //
-        //ICollection
-        //
 
         /// <summary>
         /// <para>Represents the number of objects in the <see cref='System.Management.MethodDataCollection'/>.</para>
@@ -119,8 +114,7 @@ namespace System.Management
         ///    <para>Indicates whether the object is synchronized.</para>
         /// </summary>
         /// <value>
-        /// <para><see langword='true'/> if the object is synchronized;
-        ///    otherwise, <see langword='false'/>.</para>
+        /// <para><see langword='true'/> if the object is synchronized; otherwise, <see langword='false'/>.</para>
         /// </value>
         public bool IsSynchronized
         {
@@ -164,9 +158,6 @@ namespace System.Management
             CopyTo((Array)methodArray, index);
         }
 
-        //
-        // IEnumerable
-        //
         IEnumerator IEnumerable.GetEnumerator()
         {
             return (IEnumerator)(new MethodDataEnumerator(parent));
@@ -188,7 +179,6 @@ namespace System.Management
             return new MethodDataEnumerator(parent);
         }
 
-        //Enumerator class
         /// <summary>
         /// <para>Represents the enumerator for <see cref='System.Management.MethodData'/>
         /// objects in the <see cref='System.Management.MethodDataCollection'/>.</para>
@@ -327,9 +317,6 @@ namespace System.Management
         }
 
 
-        //
-        //Methods
-        //
 
         /// <summary>
         /// <para>Returns the specified <see cref='System.Management.MethodData'/> from the <see cref='System.Management.MethodDataCollection'/>.</para>

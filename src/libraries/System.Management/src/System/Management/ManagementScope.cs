@@ -598,7 +598,6 @@ namespace System.Management
             }
         }
 
-        //Internal constructor
         internal ManagementScope(ManagementPath path, IWbemServices wbemServices,
             ConnectionOptions options)
         {
@@ -667,7 +666,6 @@ namespace System.Management
             return scopeTmp;
         }
 
-        //Default constructor
         /// <overload>
         ///    Initializes a new instance
         ///    of the <see cref='System.Management.ManagementScope'/> class.
@@ -694,7 +692,6 @@ namespace System.Management
             IsDefaulted = true;
         }
 
-        //Parameterized constructors
         /// <summary>
         /// <para>Initializes a new instance of the <see cref='System.Management.ManagementScope'/> class representing
         ///    the specified scope path.</para>
@@ -928,12 +925,10 @@ namespace System.Management
                 throw new InvalidOperationException();
 
 
-            /*
-             * If we're not connected yet, this is the time to do it... We lock
-             * the state to prevent 2 threads simultaneously doing the same
-             * connection. To avoid taking the lock unnecessarily we examine
-             * isConnected first
-             */
+            // If we're not connected yet, this is the time to do it... We lock
+            // the state to prevent 2 threads simultaneously doing the same
+            // connection. To avoid taking the lock unnecessarily we examine
+            // isConnected first
             if (!IsConnected)
             {
                 lock (this)

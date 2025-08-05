@@ -66,8 +66,7 @@ namespace System.Management
         /// <summary>
         /// Constructor.
         /// </summary>
-        /// <param name="context">The operation context which is echoed back
-        /// from the operation which triggered the event.</param>
+        /// <param name="context">The operation context which is echoed back from the operation which triggered the event.</param>
         /// <param name="wmiObject">The newly arrived WmiObject.</param>
         internal ObjectReadyEventArgs(object context, ManagementBaseObject wmiObject) : base(context)
         {
@@ -78,8 +77,7 @@ namespace System.Management
         ///    <para> Gets the newly-returned object.</para>
         /// </summary>
         /// <value>
-        /// <para>A <see cref='System.Management.ManagementBaseObject'/> representing the
-        ///    newly-returned object.</para>
+        /// <para>A <see cref='System.Management.ManagementBaseObject'/> representing the newly-returned object.</para>
         /// </value>
         public ManagementBaseObject NewObject
         {
@@ -98,11 +96,7 @@ namespace System.Management
         private readonly int status;
         private readonly ManagementBaseObject wmiObject;
 
-        /// <summary>
-        /// Constructor.
-        /// </summary>
-        /// <param name="context">The operation context which is echoed back
-        /// from the operation which trigerred the event.</param>
+        /// <param name="context">The operation context which is echoed back from the operation which trigerred the event.</param>
         /// <param name="status">The completion status of the operation.</param>
         /// <param name="wmiStatusObject">Additional status information
         /// encapsulated within a WmiObject. This may be null.</param>
@@ -132,8 +126,7 @@ namespace System.Management
         ///    <para>Gets the completion status of the operation.</para>
         /// </summary>
         /// <value>
-        /// <para>A <see cref='System.Management.ManagementStatus'/> value
-        ///    indicating the return code of the operation.</para>
+        /// <para>A <see cref='System.Management.ManagementStatus'/> value indicating the return code of the operation.</para>
         /// </value>
         public ManagementStatus Status
         {
@@ -151,9 +144,6 @@ namespace System.Management
     {
         private readonly ManagementPath wmiPath;
 
-        /// <summary>
-        /// Constructor
-        /// </summary>
         /// <param name="context">The operation context which is echoed back
         /// from the operation which trigerred the event.</param>
         /// <param name="path">The WmiPath representing the identity of the
@@ -189,9 +179,6 @@ namespace System.Management
         private readonly int current;
         private readonly string message;
 
-        /// <summary>
-        /// Constructor
-        /// </summary>
         /// <param name="context">The operation context which is echoed back
         /// from the operation which trigerred the event.</param>
         /// <param name="upperBound">A quantity representing the total
@@ -225,7 +212,7 @@ namespace System.Management
         }
 
         /// <summary>
-        ///    <para> Gets the current amount of work
+        ///    <para>Gets the current amount of work
         ///       done by the operation. This is always less than or equal to <see cref='System.Management.ProgressEventArgs.UpperBound'/>.</para>
         /// </summary>
         /// <value>
@@ -269,7 +256,7 @@ namespace System.Management
         }
 
         /// <summary>
-        ///    <para> Gets the WMI event that was delivered.</para>
+        ///    <para>Gets the WMI event that was delivered.</para>
         /// </summary>
         /// <value>
         ///    The object representing the WMI event.
@@ -296,8 +283,7 @@ namespace System.Management
         ///    <para> Gets the completion status of the operation.</para>
         /// </summary>
         /// <value>
-        /// <para>A <see cref='System.Management.ManagementStatus'/> value representing the status of the
-        ///    operation.</para>
+        /// <para>A <see cref='System.Management.ManagementStatus'/> value representing the status of the operation.</para>
         /// </value>
         public ManagementStatus Status
         {
