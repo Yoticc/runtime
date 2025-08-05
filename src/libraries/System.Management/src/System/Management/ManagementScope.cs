@@ -1018,38 +1018,38 @@ namespace System.Management
         {
             return new SecuredIEnumWbemClassObjectHandler(this, pEnumWbemClassObject);
         }
-        internal SecuredIWbemServicesHandler GetSecuredIWbemServicesHandler(IWbemServices pWbemServiecs)
+        internal SecuredIWbemServicesHandler GetSecuredIWbemServicesHandler(IWbemServices pWbemServices)
         {
-            return new SecuredIWbemServicesHandler(this, pWbemServiecs);
+            return new SecuredIWbemServicesHandler(this, pWbemServices);
         }
 
     }
 
     internal sealed class SecuredIEnumWbemClassObjectHandler
     {
-        private readonly IEnumWbemClassObject pEnumWbemClassObjectsecurityHelper;
+        private readonly IEnumWbemClassObject pEnumWbemClassObjectSecurityHelper;
         private readonly ManagementScope scope;
         internal SecuredIEnumWbemClassObjectHandler(ManagementScope theScope, IEnumWbemClassObject pEnumWbemClassObject)
         {
             this.scope = theScope;
-            pEnumWbemClassObjectsecurityHelper = pEnumWbemClassObject;
+            pEnumWbemClassObjectSecurityHelper = pEnumWbemClassObject;
         }
         internal int Reset_()
         {
             int status = (int)tag_WBEMSTATUS.WBEM_E_FAILED;
-            status = pEnumWbemClassObjectsecurityHelper.Reset_();
+            status = pEnumWbemClassObjectSecurityHelper.Reset_();
             return status;
         }
         internal int Next_(int lTimeout, uint uCount, IWbemClassObject_DoNotMarshal[] ppOutParams, ref uint puReturned)
         {
             int status = (int)tag_WBEMSTATUS.WBEM_E_FAILED;
-            status = pEnumWbemClassObjectsecurityHelper.Next_(lTimeout, uCount, ppOutParams, out puReturned);
+            status = pEnumWbemClassObjectSecurityHelper.Next_(lTimeout, uCount, ppOutParams, out puReturned);
             return status;
         }
         internal int NextAsync_(uint uCount, IWbemObjectSink pSink)
         {
             int status = (int)tag_WBEMSTATUS.WBEM_E_FAILED;
-            status = pEnumWbemClassObjectsecurityHelper.NextAsync_(uCount, pSink);
+            status = pEnumWbemClassObjectSecurityHelper.NextAsync_(uCount, pSink);
             return status;
         }
         internal int Clone_(ref IEnumWbemClassObject ppEnum)
@@ -1062,7 +1062,7 @@ namespace System.Management
                     out ppEnum,
                     (int)scope.Options.Authentication,
                     (int)scope.Options.Impersonation,
-                    pEnumWbemClassObjectsecurityHelper,
+                    pEnumWbemClassObjectSecurityHelper,
                     scope.Options.Username,
                     password,
                     scope.Options.Authority);
@@ -1073,7 +1073,7 @@ namespace System.Management
         internal int Skip_(int lTimeout, uint nCount)
         {
             int status = (int)tag_WBEMSTATUS.WBEM_E_FAILED;
-            status = pEnumWbemClassObjectsecurityHelper.Skip_(lTimeout, nCount);
+            status = pEnumWbemClassObjectSecurityHelper.Skip_(lTimeout, nCount);
             return status;
         }
     }
@@ -1131,12 +1131,12 @@ namespace System.Management
 
     internal sealed class SecuredIWbemServicesHandler
     {
-        private readonly IWbemServices pWbemServiecsSecurityHelper;
+        private readonly IWbemServices pWbemServicesSecurityHelper;
         private readonly ManagementScope scope;
-        internal SecuredIWbemServicesHandler(ManagementScope theScope, IWbemServices pWbemServiecs)
+        internal SecuredIWbemServicesHandler(ManagementScope theScope, IWbemServices pWbemServices)
         {
             this.scope = theScope;
-            pWbemServiecsSecurityHelper = pWbemServiecs;
+            pWbemServicesSecurityHelper = pWbemServices;
         }
         internal int OpenNamespace_(string strNamespace, int lFlags, ref IWbemServices ppWorkingNamespace, IntPtr ppCallResult)
         {
@@ -1148,26 +1148,26 @@ namespace System.Management
         internal int CancelAsyncCall_(IWbemObjectSink pSink)
         {
             int status = (int)tag_WBEMSTATUS.WBEM_E_FAILED;
-            status = pWbemServiecsSecurityHelper.CancelAsyncCall_(pSink);
+            status = pWbemServicesSecurityHelper.CancelAsyncCall_(pSink);
             return status;
         }
         internal int QueryObjectSink_(int lFlags, ref IWbemObjectSink ppResponseHandler)
         {
             int status = (int)tag_WBEMSTATUS.WBEM_E_FAILED;
-            status = pWbemServiecsSecurityHelper.QueryObjectSink_(lFlags, out ppResponseHandler);
+            status = pWbemServicesSecurityHelper.QueryObjectSink_(lFlags, out ppResponseHandler);
             return status;
         }
         internal int GetObject_(string strObjectPath, int lFlags, IWbemContext pCtx, ref IWbemClassObjectFreeThreaded ppObject, IntPtr ppCallResult)
         {
             int status = (int)tag_WBEMSTATUS.WBEM_E_FAILED;
-            status = pWbemServiecsSecurityHelper.GetObject_(strObjectPath, lFlags, pCtx, out ppObject, ppCallResult);
+            status = pWbemServicesSecurityHelper.GetObject_(strObjectPath, lFlags, pCtx, out ppObject, ppCallResult);
             return status;
         }
 
         internal int GetObjectAsync_(string strObjectPath, int lFlags, IWbemContext pCtx, IWbemObjectSink pResponseHandler)
         {
             int status = (int)tag_WBEMSTATUS.WBEM_E_FAILED;
-            status = pWbemServiecsSecurityHelper.GetObjectAsync_(strObjectPath, lFlags, pCtx, pResponseHandler);
+            status = pWbemServicesSecurityHelper.GetObjectAsync_(strObjectPath, lFlags, pCtx, pResponseHandler);
             return status;
         }
         internal int PutClass_(IWbemClassObjectFreeThreaded pObject, int lFlags, IWbemContext pCtx, IntPtr ppCallResult)
@@ -1182,7 +1182,7 @@ namespace System.Management
                     ppCallResult,
                     (int)scope.Options.Authentication,
                     (int)scope.Options.Impersonation,
-                    pWbemServiecsSecurityHelper,
+                    pWbemServicesSecurityHelper,
                     scope.Options.Username,
                     password,
                     scope.Options.Authority);
@@ -1193,19 +1193,19 @@ namespace System.Management
         internal int PutClassAsync_(IWbemClassObjectFreeThreaded pObject, int lFlags, IWbemContext pCtx, IWbemObjectSink pResponseHandler)
         {
             int status = (int)tag_WBEMSTATUS.WBEM_E_FAILED;
-            status = pWbemServiecsSecurityHelper.PutClassAsync_(pObject, lFlags, pCtx, pResponseHandler);
+            status = pWbemServicesSecurityHelper.PutClassAsync_(pObject, lFlags, pCtx, pResponseHandler);
             return status;
         }
         internal int DeleteClass_(string strClass, int lFlags, IWbemContext pCtx, IntPtr ppCallResult)
         {
             int status = (int)tag_WBEMSTATUS.WBEM_E_FAILED;
-            status = pWbemServiecsSecurityHelper.DeleteClass_(strClass, lFlags, pCtx, ppCallResult);
+            status = pWbemServicesSecurityHelper.DeleteClass_(strClass, lFlags, pCtx, ppCallResult);
             return status;
         }
         internal int DeleteClassAsync_(string strClass, int lFlags, IWbemContext pCtx, IWbemObjectSink pResponseHandler)
         {
             int status = (int)tag_WBEMSTATUS.WBEM_E_FAILED;
-            status = pWbemServiecsSecurityHelper.DeleteClassAsync_(strClass, lFlags, pCtx, pResponseHandler);
+            status = pWbemServicesSecurityHelper.DeleteClassAsync_(strClass, lFlags, pCtx, pResponseHandler);
             return status;
         }
         internal int CreateClassEnum_(string strSuperClass, int lFlags, IWbemContext pCtx, ref IEnumWbemClassObject ppEnum)
@@ -1220,7 +1220,7 @@ namespace System.Management
                     out ppEnum,
                     (int)scope.Options.Authentication,
                     (int)scope.Options.Impersonation,
-                    pWbemServiecsSecurityHelper,
+                    pWbemServicesSecurityHelper,
                     scope.Options.Username,
                     password,
                     scope.Options.Authority);
@@ -1231,7 +1231,7 @@ namespace System.Management
         internal int CreateClassEnumAsync_(string strSuperClass, int lFlags, IWbemContext pCtx, IWbemObjectSink pResponseHandler)
         {
             int status = (int)tag_WBEMSTATUS.WBEM_E_FAILED;
-            status = pWbemServiecsSecurityHelper.CreateClassEnumAsync_(strSuperClass, lFlags, pCtx, pResponseHandler);
+            status = pWbemServicesSecurityHelper.CreateClassEnumAsync_(strSuperClass, lFlags, pCtx, pResponseHandler);
             return status;
         }
         internal int PutInstance_(IWbemClassObjectFreeThreaded pInst, int lFlags, IWbemContext pCtx, IntPtr ppCallResult)
@@ -1246,7 +1246,7 @@ namespace System.Management
                     ppCallResult,
                     (int)scope.Options.Authentication,
                     (int)scope.Options.Impersonation,
-                    pWbemServiecsSecurityHelper,
+                    pWbemServicesSecurityHelper,
                     scope.Options.Username,
                     password,
                     scope.Options.Authority);
@@ -1257,19 +1257,19 @@ namespace System.Management
         internal int PutInstanceAsync_(IWbemClassObjectFreeThreaded pInst, int lFlags, IWbemContext pCtx, IWbemObjectSink pResponseHandler)
         {
             int status = (int)tag_WBEMSTATUS.WBEM_E_FAILED;
-            status = pWbemServiecsSecurityHelper.PutInstanceAsync_(pInst, lFlags, pCtx, pResponseHandler);
+            status = pWbemServicesSecurityHelper.PutInstanceAsync_(pInst, lFlags, pCtx, pResponseHandler);
             return status;
         }
         internal int DeleteInstance_(string strObjectPath, int lFlags, IWbemContext pCtx, IntPtr ppCallResult)
         {
             int status = (int)tag_WBEMSTATUS.WBEM_E_FAILED;
-            status = pWbemServiecsSecurityHelper.DeleteInstance_(strObjectPath, lFlags, pCtx, ppCallResult);
+            status = pWbemServicesSecurityHelper.DeleteInstance_(strObjectPath, lFlags, pCtx, ppCallResult);
             return status;
         }
         internal int DeleteInstanceAsync_(string strObjectPath, int lFlags, IWbemContext pCtx, IWbemObjectSink pResponseHandler)
         {
             int status = (int)tag_WBEMSTATUS.WBEM_E_FAILED;
-            status = pWbemServiecsSecurityHelper.DeleteInstanceAsync_(strObjectPath, lFlags, pCtx, pResponseHandler);
+            status = pWbemServicesSecurityHelper.DeleteInstanceAsync_(strObjectPath, lFlags, pCtx, pResponseHandler);
             return status;
         }
 
@@ -1285,7 +1285,7 @@ namespace System.Management
                     out ppEnum,
                     (int)scope.Options.Authentication,
                     (int)scope.Options.Impersonation,
-                    pWbemServiecsSecurityHelper,
+                    pWbemServicesSecurityHelper,
                     scope.Options.Username,
                     password,
                     scope.Options.Authority);
@@ -1296,7 +1296,7 @@ namespace System.Management
         internal int CreateInstanceEnumAsync_(string strFilter, int lFlags, IWbemContext pCtx, IWbemObjectSink pResponseHandler)
         {
             int status = (int)tag_WBEMSTATUS.WBEM_E_FAILED;
-            status = pWbemServiecsSecurityHelper.CreateInstanceEnumAsync_(strFilter, lFlags, pCtx, pResponseHandler);
+            status = pWbemServicesSecurityHelper.CreateInstanceEnumAsync_(strFilter, lFlags, pCtx, pResponseHandler);
             return status;
         }
         internal int ExecQuery_(string strQueryLanguage, string strQuery, int lFlags, IWbemContext pCtx, ref IEnumWbemClassObject ppEnum)
@@ -1312,7 +1312,7 @@ namespace System.Management
                     out ppEnum,
                     (int)scope.Options.Authentication,
                     (int)scope.Options.Impersonation,
-                    pWbemServiecsSecurityHelper,
+                    pWbemServicesSecurityHelper,
                     scope.Options.Username,
                     password,
                     scope.Options.Authority);
@@ -1323,7 +1323,7 @@ namespace System.Management
         internal int ExecQueryAsync_(string strQueryLanguage, string strQuery, int lFlags, IWbemContext pCtx, IWbemObjectSink pResponseHandler)
         {
             int status = (int)tag_WBEMSTATUS.WBEM_E_FAILED;
-            status = pWbemServiecsSecurityHelper.ExecQueryAsync_(strQueryLanguage, strQuery, lFlags, pCtx, pResponseHandler);
+            status = pWbemServicesSecurityHelper.ExecQueryAsync_(strQueryLanguage, strQuery, lFlags, pCtx, pResponseHandler);
             return status;
         }
         internal int ExecNotificationQuery_(string strQueryLanguage, string strQuery, int lFlags, IWbemContext pCtx, ref IEnumWbemClassObject ppEnum)
@@ -1339,7 +1339,7 @@ namespace System.Management
                     out ppEnum,
                     (int)scope.Options.Authentication,
                     (int)scope.Options.Impersonation,
-                    pWbemServiecsSecurityHelper,
+                    pWbemServicesSecurityHelper,
                     scope.Options.Username,
                     password,
                     scope.Options.Authority);
@@ -1350,19 +1350,19 @@ namespace System.Management
         internal int ExecNotificationQueryAsync_(string strQueryLanguage, string strQuery, int lFlags, IWbemContext pCtx, IWbemObjectSink pResponseHandler)
         {
             int status = (int)tag_WBEMSTATUS.WBEM_E_FAILED;
-            status = pWbemServiecsSecurityHelper.ExecNotificationQueryAsync_(strQueryLanguage, strQuery, lFlags, pCtx, pResponseHandler);
+            status = pWbemServicesSecurityHelper.ExecNotificationQueryAsync_(strQueryLanguage, strQuery, lFlags, pCtx, pResponseHandler);
             return status;
         }
         internal int ExecMethod_(string strObjectPath, string strMethodName, int lFlags, IWbemContext pCtx, IWbemClassObjectFreeThreaded pInParams, ref IWbemClassObjectFreeThreaded ppOutParams, IntPtr ppCallResult)
         {
             int status = (int)tag_WBEMSTATUS.WBEM_E_FAILED;
-            status = pWbemServiecsSecurityHelper.ExecMethod_(strObjectPath, strMethodName, lFlags, pCtx, pInParams, out ppOutParams, ppCallResult);
+            status = pWbemServicesSecurityHelper.ExecMethod_(strObjectPath, strMethodName, lFlags, pCtx, pInParams, out ppOutParams, ppCallResult);
             return status;
         }
         internal int ExecMethodAsync_(string strObjectPath, string strMethodName, int lFlags, IWbemContext pCtx, IWbemClassObjectFreeThreaded pInParams, IWbemObjectSink pResponseHandler)
         {
             int status = (int)tag_WBEMSTATUS.WBEM_E_FAILED;
-            status = pWbemServiecsSecurityHelper.ExecMethodAsync_(strObjectPath, strMethodName, lFlags, pCtx, pInParams, pResponseHandler);
+            status = pWbemServicesSecurityHelper.ExecMethodAsync_(strObjectPath, strMethodName, lFlags, pCtx, pInParams, pResponseHandler);
             return status;
         }
     }

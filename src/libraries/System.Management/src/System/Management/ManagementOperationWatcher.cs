@@ -34,7 +34,7 @@ namespace System.Management
     ///    <code lang='C#'>using System;
     /// using System.Management;
     ///
-    /// // This sample demonstrates how to read a ManagementObject asychronously
+    /// // This sample demonstrates how to read a ManagementObject asynchronously
     /// // using the ManagementOperationObserver object.
     ///
     /// class Sample_ManagementOperationObserver {
@@ -80,7 +80,7 @@ namespace System.Management
     ///    <code lang='VB'>Imports System
     /// Imports System.Management
     ///
-    /// ' This sample demonstrates how to read a ManagementObject asychronously
+    /// ' This sample demonstrates how to read a ManagementObject asynchronously
     /// ' using the ManagementOperationObserver object.
     ///
     /// Class Sample_ManagementOperationObserver
@@ -399,7 +399,7 @@ namespace System.Management
     /// to handle the event. It ensures that no single delegate can throw
     /// an exception that prevents the event from reaching any other delegates.
     /// It also ensures that the sender does not signal the processing of the
-    /// WMI event as "done" until all target delegates have signalled that they are
+    /// WMI event as "done" until all target delegates have signaled that they are
     /// done.
     /// </summary>
     internal sealed class WmiDelegateInvoker

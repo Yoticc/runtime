@@ -614,9 +614,9 @@ namespace System.Management
             else
             {
                 // Ensure we are able to trap exceptions from worker thread.
-                ThreadDispatch disp = new ThreadDispatch(new ThreadDispatch.ThreadWorkerMethodWithParam(HackToCreateStubInMTA));
-                disp.Parameter = this;
-                disp.Start();
+                ThreadDispatch dispatch = new ThreadDispatch(new ThreadDispatch.ThreadWorkerMethodWithParam(HackToCreateStubInMTA));
+                dispatch.Parameter = this;
+                dispatch.Start();
             }
 
         }

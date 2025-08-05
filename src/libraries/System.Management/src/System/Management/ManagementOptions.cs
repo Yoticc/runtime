@@ -519,7 +519,7 @@ namespace System.Management
         /// <param name=' timeout'>The timeout value for enumerating through the results.</param>
         /// <param name=' blockSize'>The number of items to retrieve at one time from WMI.</param>
         /// <param name=' rewindable'><see langword='true'/> to specify whether the result set is rewindable (=allows multiple traversal or one-time); otherwise, <see langword='false'/>.</param>
-        /// <param name=' returnImmediatley'><see langword='true'/> to specify whether the operation should return immediately (semi-sync) or block until all results are available; otherwise, <see langword='false'/> .</param>
+        /// <param name=' returnImmediately'><see langword='true'/> to specify whether the operation should return immediately (semi-sync) or block until all results are available; otherwise, <see langword='false'/> .</param>
         /// <param name=' useAmendedQualifiers'><see langword='true'/> to specify whether the returned objects should contain amended (locale-aware) qualifiers; otherwise, <see langword='false'/> .</param>
         /// <param name=' ensureLocatable'><see langword='true'/> to specify to WMI that it should ensure all returned objects have valid paths; otherwise, <see langword='false'/> .</param>
         /// <param name=' prototypeOnly'><see langword='true'/> to return a prototype of the result set instead of the actual results; otherwise, <see langword='false'/> .</param>
@@ -530,7 +530,7 @@ namespace System.Management
             TimeSpan timeout,
             int blockSize,
             bool rewindable,
-            bool returnImmediatley,
+            bool returnImmediately,
             bool useAmendedQualifiers,
             bool ensureLocatable,
             bool prototypeOnly,
@@ -539,7 +539,7 @@ namespace System.Management
         {
             BlockSize = blockSize;
             Rewindable = rewindable;
-            ReturnImmediately = returnImmediatley;
+            ReturnImmediately = returnImmediately;
             UseAmendedQualifiers = useAmendedQualifiers;
             EnsureLocatable = ensureLocatable;
             PrototypeOnly = prototypeOnly;
@@ -867,7 +867,7 @@ namespace System.Management
     ///
     /// // This example demonstrates how to specify a PutOptions using
     /// // PutOptions object when saving a ManagementClass object to
-    /// // the WMI respository.
+    /// // the WMI repository.
     /// class Sample_PutOptions
     /// {
     ///     public static int Main(string[] args) {
@@ -896,7 +896,7 @@ namespace System.Management
     ///
     /// ' This example demonstrates how to specify a PutOptions using
     /// ' PutOptions object when saving a ManagementClass object to
-    /// ' WMI respository.
+    /// ' WMI repository.
     /// Class Sample_PutOptions
     ///     Overloads Public Shared Function Main(args() As String) As Integer
     ///         Dim newClass As New ManagementClass( _
@@ -1365,7 +1365,7 @@ namespace System.Management
         ///       null, the credentials used will be those of the currently logged-on user.</para>
         /// </value>
         /// <remarks>
-        ///    <para> A blank securestring ("") specifies a valid
+        ///    <para> A blank SecureString ("") specifies a valid
         ///       zero-length password.</para>
         /// </remarks>
         public SecureString SecurePassword

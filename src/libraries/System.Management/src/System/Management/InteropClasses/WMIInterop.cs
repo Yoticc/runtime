@@ -1206,7 +1206,7 @@ namespace System.Management
             thread.Start();
         }
 
-        // This method will create an instance of the requeted type in the MTA
+        // This method will create an instance of the requested type in the MTA
         public static object CreateInMTA(Type type)
         {
             // If we are currently in the MTA, we can directly create the object
@@ -1377,7 +1377,7 @@ namespace System.Management
     /// the main thread has to wait until the spawned thread finishes. As an example of this, in WMI we spawn MTA threads and create
     /// various objects in these threads to make sure we avoid marshaling cost.
     /// If the worker thread returns a value it is stored in the ThreadDispatch object and accessible to clients via the Result property.
-    /// Also, any exception thrown is propagated from worker thread to main thread (by rethrowing orinal exception):
+    /// Also, any exception thrown is propagated from worker thread to main thread (by rethrowing original exception):
     ///
     ///     ThreadDispatch dispatch = new ThreadDispatch(new ThreadDispatch.ThreadWorkerMethod(Class1.Func));
     ///     dispatch.Start();

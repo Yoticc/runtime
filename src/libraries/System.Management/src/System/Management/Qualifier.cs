@@ -157,9 +157,9 @@ namespace System.Management
         /// </value>
         /// <remarks>
         ///    <para> Qualifiers can only be of the following subset of CIM
-        ///       types: <see langword='string'/>, <see langword='uint16'/>,
-        ///    <see langword='uint32'/>, <see langword='sint32'/>, <see langword='uint64'/>,
-        ///    <see langword='sint64'/>, <see langword='real32'/>, <see langword='real64'/>,
+        ///       types: <see langword='string'/>, <see langword='ushort'/>,
+        ///    <see langword='uint'/>, <see langword='int'/>, <see langword='ulong'/>,
+        ///    <see langword='long'/>, <see langword='float'/>, <see langword='double'/>,
         ///    <see langword='bool'/>.
         ///       </para>
         /// </remarks>

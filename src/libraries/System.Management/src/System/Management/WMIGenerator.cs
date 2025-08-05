@@ -7526,7 +7526,7 @@ namespace System.Management
                 }
             */
             string exceptVar = "e";
-            CodeCatchClause catchblock = new CodeCatchClause(exceptVar);
+            CodeCatchClause catchBlock = new CodeCatchClause(exceptVar);
 
             CodeObjectCreateExpression codeThrowExceptionWithArgs = new CodeObjectCreateExpression();
             codeThrowExceptionWithArgs.CreateType = new CodeTypeReference
@@ -7540,11 +7540,11 @@ namespace System.Management
                 "Message"
                 )
                 );
-            catchblock.Statements.Add(new CodeThrowExceptionStatement(codeThrowExceptionWithArgs));
+            catchBlock.Statements.Add(new CodeThrowExceptionStatement(codeThrowExceptionWithArgs));
             //
             // add the catch block to the try block
             //
-            tryblock.CatchClauses.Add(catchblock);
+            tryblock.CatchClauses.Add(catchBlock);
             //
             // add the try block to cmmts
             //

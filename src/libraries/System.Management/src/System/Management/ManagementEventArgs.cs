@@ -36,7 +36,7 @@ namespace System.Management
         /// Constructor. This is not callable directly by applications.
         /// </summary>
         /// <param name="context">The operation context which is echoed back
-        /// from the operation which trigerred the event.</param>
+        /// from the operation which triggered the event.</param>
         internal ManagementEventArgs(object context)
         {
             this.context = context;
@@ -96,7 +96,7 @@ namespace System.Management
         private readonly int status;
         private readonly ManagementBaseObject wmiObject;
 
-        /// <param name="context">The operation context which is echoed back from the operation which trigerred the event.</param>
+        /// <param name="context">The operation context which is echoed back from the operation which triggered the event.</param>
         /// <param name="status">The completion status of the operation.</param>
         /// <param name="wmiStatusObject">Additional status information
         /// encapsulated within a WmiObject. This may be null.</param>
@@ -145,7 +145,7 @@ namespace System.Management
         private readonly ManagementPath wmiPath;
 
         /// <param name="context">The operation context which is echoed back
-        /// from the operation which trigerred the event.</param>
+        /// from the operation which triggered the event.</param>
         /// <param name="path">The WmiPath representing the identity of the
         /// object that has been put.</param>
         internal ObjectPutEventArgs(object context, ManagementPath path) : base(context)
@@ -180,7 +180,7 @@ namespace System.Management
         private readonly string message;
 
         /// <param name="context">The operation context which is echoed back
-        /// from the operation which trigerred the event.</param>
+        /// from the operation which triggered the event.</param>
         /// <param name="upperBound">A quantity representing the total
         /// amount of work required to be done by the operation.</param>
         /// <param name="current">A quantity representing the current

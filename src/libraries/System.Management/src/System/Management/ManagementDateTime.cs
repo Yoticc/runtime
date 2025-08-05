@@ -29,7 +29,7 @@ namespace System.Management
     ///         // Converting System.DateTime to DMTF datetime
     ///         string dmtfDate = ManagementDateTimeConverter.ToDateTime(DateTime.Now);
     ///
-    ///         // Converting DMTF timeinterval to System.TimeSpan
+    ///         // Converting DMTF time interval to System.TimeSpan
     ///         System.TimeSpan tsRet = ManagementDateTimeConverter. ToTimeSpan(dmtfTimeInterval);
     ///
     ///         //Converting System.TimeSpan to DMTF time interval format
@@ -57,7 +57,7 @@ namespace System.Management
     ///         'Converting System.DateTime to DMTF datetime
     ///         dmtfDate = ManagementDateTimeConverter.ToDateTime(DateTime.Now)
     ///
-    ///         ' Converting DMTF timeinterval to System.TimeSpan
+    ///         ' Converting DMTF time interval to System.TimeSpan
     ///         Dim tsRet As System.TimeSpan = ManagementDateTimeConverter.ToTimeSpan(dmtfTimeInterval)
     ///
     ///         'Converting System.TimeSpan to DMTF time interval format
@@ -285,7 +285,7 @@ namespace System.Management
         /// <summary>
         /// <para>Converts a given DMTF time interval to <see cref='System.TimeSpan'/> object.</para>
         /// </summary>
-        /// <param name='dmtfTimespan'>A string represesentation of the DMTF time interval.</param>
+        /// <param name='dmtfTimespan'>A string representation of the DMTF time interval.</param>
         /// <returns>
         /// <para>A <see cref='System.TimeSpan'/> object that represents the given DMTF time interval.</para>
         /// </returns>
@@ -365,7 +365,7 @@ namespace System.Management
             }
 
             timespan = new System.TimeSpan(days, hours, minutes, seconds, 0);
-            // Get a timepan for the additional ticks obtained for the microsecond part of DMTF time interval
+            // Get a timespan for the additional ticks obtained for the microsecond part of DMTF time interval
             // and then add it to the original timespan
             TimeSpan tsTemp = System.TimeSpan.FromTicks(ticks);
             timespan += tsTemp;
@@ -404,7 +404,7 @@ namespace System.Management
         public static string ToDmtfTimeInterval(TimeSpan timespan)
         {
 
-            string dmtftimespan = timespan.Days.ToString((IFormatProvider)CultureInfo.InvariantCulture.GetFormat(typeof(int))).PadLeft(8, '0');
+            string dmtfTimeSpan = timespan.Days.ToString((IFormatProvider)CultureInfo.InvariantCulture.GetFormat(typeof(int))).PadLeft(8, '0');
             IFormatProvider frmInt32 = (IFormatProvider)CultureInfo.InvariantCulture.GetFormat(typeof(int));
 
             // Days that can be represented is more than what can be represented then throw an exception
@@ -414,10 +414,10 @@ namespace System.Management
                 throw new System.ArgumentOutOfRangeException(nameof(timespan));
             }
 
-            dmtftimespan += timespan.Hours.ToString(frmInt32).PadLeft(2, '0');
-            dmtftimespan += timespan.Minutes.ToString(frmInt32).PadLeft(2, '0');
-            dmtftimespan += timespan.Seconds.ToString(frmInt32).PadLeft(2, '0');
-            dmtftimespan += ".";
+            dmtfTimeSpan += timespan.Hours.ToString(frmInt32).PadLeft(2, '0');
+            dmtfTimeSpan += timespan.Minutes.ToString(frmInt32).PadLeft(2, '0');
+            dmtfTimeSpan += timespan.Seconds.ToString(frmInt32).PadLeft(2, '0');
+            dmtfTimeSpan += ".";
 
             // Construct a DateTime with the precision to Second as same as the passed DateTime and so get
             // the ticks difference so that the microseconds can be calculated
@@ -430,11 +430,11 @@ namespace System.Management
             {
                 strMicrosec = strMicrosec.Substring(0, 6);
             }
-            dmtftimespan += strMicrosec.PadLeft(6, '0');
+            dmtfTimeSpan += strMicrosec.PadLeft(6, '0');
 
-            dmtftimespan += ":000";
+            dmtfTimeSpan += ":000";
 
-            return dmtftimespan;
+            return dmtfTimeSpan;
         }
     }
 }

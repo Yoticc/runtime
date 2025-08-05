@@ -419,7 +419,7 @@ namespace System.Management
         UpdateTypeMismatch              = unchecked((int)0x80041052),
         /// <summary>
         ///    <para> An attempt was made in a derived class to override a
-        ///       non-overrideable qualifier. </para>
+        ///       non-overridable qualifier. </para>
         /// </summary>
         UpdateOverrideNotAllowed        = unchecked((int)0x80041053),
         /// <summary>

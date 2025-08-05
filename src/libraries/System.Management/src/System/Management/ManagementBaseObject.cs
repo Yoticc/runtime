@@ -631,7 +631,7 @@ namespace System.Management
                 if (exc.ErrorCode == ManagementStatus.NotFound)
                 {
                     //we could wind up here if Initialize() throws (either here or inside CompareTo())
-                    //Since we cannot throw from Equals() imprelemtation and it is invalid to assume
+                    //Since we cannot throw from Equals() implementation and it is invalid to assume
                     //that two objects are different because they fail to initialize
                     //so, we can just compare these invalid paths "by value"
 

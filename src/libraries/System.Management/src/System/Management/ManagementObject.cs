@@ -1504,7 +1504,7 @@ namespace System.Management
                     // That didn't work. Use the path in the object instead.
                     object pathValue = GetPropertyValue("__PATH");
 
-                    // No path? Try Relpath?
+                    // No path? Try relpath?
                     if (pathValue != null)
                         newPath = new ManagementPath((string)pathValue);
                     else

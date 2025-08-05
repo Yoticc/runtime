@@ -46,8 +46,8 @@ namespace System.Management
             classNameParameter = className;
 
             // Ensure we are able to trap exceptions from worker thread.
-            ThreadDispatch disp = new ThreadDispatch(new ThreadDispatch.ThreadWorkerMethod(HackToCreateWmiEventSink));
-            disp.Start();
+            ThreadDispatch dispatch = new ThreadDispatch(new ThreadDispatch.ThreadWorkerMethod(HackToCreateWmiEventSink));
+            dispatch.Start();
 
             return wmiEventSinkNew;
         }
@@ -257,8 +257,8 @@ namespace System.Management
             managementObjectParameter = managementObject;
 
             // Ensure we are able to trap exceptions from worker thread.
-            ThreadDispatch disp = new ThreadDispatch(new ThreadDispatch.ThreadWorkerMethod(HackToCreateWmiGetEventSink));
-            disp.Start();
+            ThreadDispatch dispatch = new ThreadDispatch(new ThreadDispatch.ThreadWorkerMethod(HackToCreateWmiGetEventSink));
+            dispatch.Start();
 
             return wmiGetEventSinkNew;
         }
