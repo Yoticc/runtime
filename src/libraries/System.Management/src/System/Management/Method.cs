@@ -242,5 +242,5 @@ namespace System.Management
         /// <seealso cref='System.Management.QualifierData'/>
         public QualifierDataCollection Qualifiers => qualifiers ??= new QualifierDataCollection(parent, methodName, QualifierType.MethodQualifier);
 
-    }//MethodData
+    }
 }

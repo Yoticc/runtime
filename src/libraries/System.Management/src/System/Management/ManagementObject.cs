@@ -2778,5 +2778,5 @@ namespace System.Management
             return result;
         }
 
-    }//ManagementObject
+    }
 }

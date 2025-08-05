@@ -155,7 +155,7 @@ namespace System.Management
             q = q.Remove(0, token.Length).TrimStart(null);
         }
 
-    }//ManagementQuery
+    }
 
 
     //CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC//
@@ -247,7 +247,7 @@ namespace System.Management
             return new ObjectQuery(QueryLanguage, QueryString);
         }
 
-    }//ObjectQuery
+    }
 
 
     //CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC//
@@ -458,7 +458,7 @@ namespace System.Management
         {
             return new EventQuery(QueryLanguage, QueryString);
         }
-    }//EventQuery
+    }
 
 
     //CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC//
@@ -556,7 +556,7 @@ namespace System.Management
         }
 
 
-    }//WqlObjectQuery
+    }
 
 
 
@@ -1007,7 +1007,7 @@ namespace System.Management
                                 else //bad query
                                     throw new ArgumentException(SR.InvalidQuery);
                             }
-                        } //while
+                        }
                     }
                     else
                         q = q.Remove(0, 1).TrimStart(null);
@@ -1028,7 +1028,7 @@ namespace System.Management
                 {
                     condition = q.Substring(keyword.Length).Trim();
                 }
-            } //if isSchemaQuery == false
+            }
             else //this is a schema query
             {
                 //Find "select" clause and make sure it's the right syntax
@@ -1091,7 +1091,7 @@ namespace System.Management
                 //Empty not-applicable properties
                 className = null;
                 selectedProperties = null;
-            }//schema query
+            }
         }
 
         /// <summary>
@@ -1121,7 +1121,7 @@ namespace System.Management
                 return new SelectQuery(true, condition);
         }
 
-    }//SelectQuery
+    }
 
 
     //CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC//
@@ -1621,7 +1621,7 @@ namespace System.Management
             //since we do not want to force a parse of a query we just built).
             SetQueryString(s);
 
-        }//BuildQuery()
+        }
 
 
         /// <summary>
@@ -1751,7 +1751,7 @@ namespace System.Management
             classDefinitionsOnly = tempClassDefsOnly;
             isSchemaQuery = tempIsSchemaQuery;
 
-        }//ParseQuery()
+        }
 
 
         //ICloneable
@@ -1774,7 +1774,7 @@ namespace System.Management
 
         }
 
-    }//RelatedObjectQuery
+    }
 
 
     //CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC//
@@ -2141,7 +2141,7 @@ namespace System.Management
             //by accessing the internal helper function rather than the property,
             //since we do not want to force a parse of a query we just built).
             SetQueryString(s);
-        } //BuildQuery()
+        }
 
 
         /// <summary>
@@ -2257,7 +2257,7 @@ namespace System.Management
             classDefinitionsOnly = tempClassDefsOnly;
             isSchemaQuery = tempSchemaOnly;
 
-        }//ParseQuery()
+        }
 
 
         //ICloneable
@@ -2277,7 +2277,7 @@ namespace System.Management
                                             thisRole);
         }
 
-    }//RelationshipQuery
+    }
 
 
     //CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC//
@@ -3010,7 +3010,7 @@ namespace System.Management
             //since we do not want to force a parse of a query we just built).
             SetQueryString(s);
 
-        }//BuildQuery
+        }
 
         /// <summary>
         ///  Parses the query string and sets the property values accordingly.
@@ -3105,8 +3105,8 @@ namespace System.Management
                                 return;
                             }
                         }
-                    } //while
-                } //by
+                    }
+                }
 
                 //Find "Having" subclause
                 keyword = "having "; bFound = false;
@@ -3131,7 +3131,7 @@ namespace System.Management
                 condition = w.Substring(keyword.Length);
             }
 
-        }//ParseQuery()
+        }
 
 
         //ICloneable
@@ -3160,7 +3160,7 @@ namespace System.Management
                                                                             strArray, havingCondition);
         }
 
-    }//WqlEventQuery
+    }
 
 
     /// <summary>

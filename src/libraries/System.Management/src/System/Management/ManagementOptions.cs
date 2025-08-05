@@ -569,7 +569,7 @@ namespace System.Management
                             ReturnImmediately, UseAmendedQualifiers, EnsureLocatable, PrototypeOnly, DirectRead, EnumerateDeep);
         }
 
-    }//EnumerationOptions
+    }
 
 
 
@@ -719,7 +719,7 @@ namespace System.Management
 
             return new EventWatcherOptions(newContext, Timeout, blockSize);
         }
-    }//EventWatcherOptions
+    }
 
 
 
@@ -1737,5 +1737,5 @@ namespace System.Management
             return optionsTmp;
         }
 
-    }//ConnectionOptions
+    }
 }

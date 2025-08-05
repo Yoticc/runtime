@@ -804,5 +804,5 @@ namespace System.Management
                 Properties[propertyName].Value = propertyValue;
         }
 
-    }//ManagementBaseObject
+    }
 }

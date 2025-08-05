@@ -100,7 +100,7 @@ namespace System.Management
                     {
                         ManagementException.ThrowWithExtendedInfo(e);
                     }
-                } // lock
+                }
 
                 if ((status & 0xfffff000) == 0x80041000)
                 {
@@ -324,7 +324,7 @@ namespace System.Management
                 en.Reset();
             }
 
-        }//MethodDataEnumerator
+        }
 
 
         //
@@ -451,5 +451,5 @@ namespace System.Management
             }
         }
 
-    }//MethodDataCollection
+    }
 }

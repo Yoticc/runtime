@@ -632,7 +632,7 @@ namespace System.Management
                 }
             }
 
-        } //ManagementObjectEnumerator class
+        }
 
-    } //ManagementObjectCollection class
+    }
 }

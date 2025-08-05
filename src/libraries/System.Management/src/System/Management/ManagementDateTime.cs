@@ -438,5 +438,5 @@ namespace System.Management
 
             return dmtftimespan;
         }
-    } // ManagementDateTimeConverter
+    }
 }

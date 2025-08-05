@@ -1422,5 +1422,5 @@ namespace System.Management
             return classGen.GenerateCode(lang, filePath, classNamespace);
         }
 
-    }//ManagementClass
+    }
 }

@@ -364,5 +364,5 @@ namespace System.Management
             }
         }
 
-    }//QualifierData
+    }
 }

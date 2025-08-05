@@ -387,7 +387,7 @@ namespace System.Management
             //Create a new collection object for the results
 
             return new ManagementObjectCollection(scope, options, ew);
-        }//Get()
+        }
 
 
         /// <summary>

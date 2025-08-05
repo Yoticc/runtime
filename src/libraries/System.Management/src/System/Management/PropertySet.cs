@@ -319,7 +319,7 @@ namespace System.Management
                 index = -1;
             }
 
-        }//PropertyDataEnumerator
+        }
 
 
 
@@ -515,5 +515,5 @@ namespace System.Management
             }
         }
 
-    }//PropertyDataCollection
+    }
 }

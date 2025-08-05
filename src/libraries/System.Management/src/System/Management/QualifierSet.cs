@@ -392,7 +392,7 @@ namespace System.Management
                 index = -1;
             }
 
-        }//QualifierDataEnumerator
+        }
 
 
         //
@@ -483,5 +483,5 @@ namespace System.Management
             }
         }
 
-    }//QualifierDataCollection
+    }
 }

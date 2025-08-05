@@ -811,5 +811,5 @@ namespace System.Management
             return wmiValue;
         }
 
-    }//PropertyData
+    }
 }

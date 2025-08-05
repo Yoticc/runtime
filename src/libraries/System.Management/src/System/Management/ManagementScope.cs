@@ -1028,7 +1028,7 @@ namespace System.Management
             return new SecuredIWbemServicesHandler(this, pWbemServiecs);
         }
 
-    }//ManagementScope
+    }
 
     internal sealed class SecuredIEnumWbemClassObjectHandler
     {
@@ -1455,7 +1455,7 @@ namespace System.Management
         }
 
 
-    } //SecurityHandler
+    }
 
 
     /// <summary>
