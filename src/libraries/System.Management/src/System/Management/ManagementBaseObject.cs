@@ -457,9 +457,6 @@ namespace System.Management
         //Methods
         //
 
-        //******************************************************
-        //[] operator by property name
-        //******************************************************
         /// <summary>
         ///    <para> Gets access to property values through [] notation.</para>
         /// </summary>
@@ -485,9 +482,6 @@ namespace System.Management
             }
         }
 
-        //******************************************************
-        //GetPropertyValue
-        //******************************************************
         /// <summary>
         ///    <para>Gets an equivalent accessor to a property's value.</para>
         /// </summary>
@@ -507,9 +501,6 @@ namespace System.Management
                 return Properties[propertyName].Value;
         }
 
-        //******************************************************
-        //GetQualifierValue
-        //******************************************************
         /// <summary>
         ///    <para>Gets the value of the specified qualifier.</para>
         /// </summary>
@@ -522,9 +513,6 @@ namespace System.Management
             return Qualifiers[qualifierName].Value;
         }
 
-        //******************************************************
-        //SetQualifierValue
-        //******************************************************
         /// <summary>
         ///    <para>Sets the value of the named qualifier.</para>
         /// </summary>
@@ -536,9 +524,6 @@ namespace System.Management
         }
 
 
-        //******************************************************
-        //GetPropertyQualifierValue
-        //******************************************************
         /// <summary>
         ///    <para>Returns the value of the specified property qualifier.</para>
         /// </summary>
@@ -552,9 +537,6 @@ namespace System.Management
             return Properties[propertyName].Qualifiers[qualifierName].Value;
         }
 
-        //******************************************************
-        //SetPropertyQualifierValue
-        //******************************************************
         /// <summary>
         ///    <para>Sets the value of the specified property qualifier.</para>
         /// </summary>
@@ -567,9 +549,6 @@ namespace System.Management
             Properties[propertyName].Qualifiers[qualifierName].Value = qualifierValue;
         }
 
-        //******************************************************
-        //GetText
-        //******************************************************
         /// <summary>
         ///    <para>Returns a textual representation of the object in the specified format.</para>
         /// </summary>
@@ -719,9 +698,6 @@ namespace System.Management
             return localHash;
         }
 
-        //******************************************************
-        //CompareTo
-        //******************************************************
         /// <summary>
         ///    <para>Compares this object to another, based on specified options.</para>
         /// </summary>

@@ -250,9 +250,6 @@ namespace System.Management
         //IEnumerable methods
         //
 
-        //****************************************
-        //GetEnumerator
-        //****************************************
         /// <summary>
         ///    <para>Returns the enumerator for the collection. If the collection was retrieved from an operation that
         /// specified the EnumerationOptions.Rewindable = false only one iteration through this enumerator is allowed.
@@ -498,9 +495,6 @@ namespace System.Management
                 }
             }
 
-            //****************************************
-            //MoveNext
-            //****************************************
             /// <summary>
             ///    Indicates whether the enumerator has moved to
             ///    the next object in the enumeration.
@@ -589,9 +583,6 @@ namespace System.Management
                 return true;
             }
 
-            //****************************************
-            //Reset
-            //****************************************
             /// <summary>
             ///    <para>Resets the enumerator to the beginning of the collection.</para>
             /// </summary>

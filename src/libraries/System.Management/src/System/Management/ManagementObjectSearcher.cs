@@ -304,9 +304,6 @@ namespace System.Management
             }
         }
 
-        //********************************************
-        //Get()
-        //********************************************
         /// <overload>
         ///    Invokes the specified WMI query and returns the resulting collection.
         /// </overload>
@@ -393,9 +390,6 @@ namespace System.Management
         }//Get()
 
 
-        //********************************************
-        //Get() asynchronous
-        //********************************************
         /// <summary>
         ///    <para>Invokes the WMI query, asynchronously, and binds to a watcher to deliver the results.</para>
         /// </summary>

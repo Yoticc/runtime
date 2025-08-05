@@ -726,9 +726,6 @@ namespace System.Management
         //Methods
         //
 
-        //******************************************************
-        //Get
-        //******************************************************
         /// <overload>
         ///    Binds to the management object.
         /// </overload>
@@ -805,9 +802,6 @@ namespace System.Management
             }
         }
 
-        //******************************************************
-        //Get
-        //******************************************************
         /// <summary>
         ///    <para> Binds to the management object asynchronously.</para>
         /// </summary>
@@ -932,9 +926,6 @@ namespace System.Management
             }
         }
 
-        //******************************************************
-        //GetRelated
-        //****************************************************
         /// <overload>
         ///    <para>Gets a collection of objects related to the object (associators).</para>
         /// </overload>
@@ -965,9 +956,6 @@ namespace System.Management
             return GetRelated((string)null);
         }
 
-        //******************************************************
-        //GetRelated
-        //****************************************************
         /// <summary>
         ///    <para>Gets a collection of objects related to the object (associators).</para>
         /// </summary>
@@ -994,9 +982,6 @@ namespace System.Management
         }
 
 
-        //******************************************************
-        //GetRelated
-        //****************************************************
         /// <summary>
         ///    <para>Gets a collection of objects related to the object (associators).</para>
         /// </summary>
@@ -1077,9 +1062,6 @@ namespace System.Management
         }
 
 
-        //******************************************************
-        //GetRelated
-        //****************************************************
         /// <summary>
         ///    <para> Gets a collection of objects
         ///       related to the object (associators) asynchronously. This call returns immediately, and a
@@ -1092,9 +1074,6 @@ namespace System.Management
             GetRelated(watcher, (string)null);
         }
 
-        //******************************************************
-        //GetRelated
-        //****************************************************
         /// <summary>
         ///    <para>Gets a collection of objects related to the object (associators).</para>
         /// </summary>
@@ -1111,9 +1090,6 @@ namespace System.Management
         }
 
 
-        //******************************************************
-        //GetRelated
-        //****************************************************
         /// <summary>
         ///    <para>Gets a collection of objects related to the object (associators).</para>
         /// </summary>
@@ -1197,9 +1173,6 @@ namespace System.Management
             }
         }
 
-        //*******************************************************************
-        //GetRelationships
-        //*******************************************************************
         /// <overload>
         ///    Gets a collection of associations to the object.
         /// </overload>
@@ -1217,9 +1190,6 @@ namespace System.Management
             return GetRelationships((string)null);
         }
 
-        //*******************************************************************
-        //GetRelationships
-        //*******************************************************************
         /// <summary>
         ///    <para>Gets a collection of associations to the object.</para>
         /// </summary>
@@ -1237,9 +1207,6 @@ namespace System.Management
         }
 
 
-        //*******************************************************************
-        //GetRelationships
-        //*******************************************************************
         /// <summary>
         ///    <para>Gets a collection of associations to the object.</para>
         /// </summary>
@@ -1309,9 +1276,6 @@ namespace System.Management
         }
 
 
-        //*******************************************************************
-        //GetRelationships
-        //*******************************************************************
         /// <summary>
         ///    <para>Gets a collection of associations to the object.</para>
         /// </summary>
@@ -1325,9 +1289,6 @@ namespace System.Management
             GetRelationships(watcher, (string)null);
         }
 
-        //*******************************************************************
-        //GetRelationships
-        //*******************************************************************
         /// <summary>
         ///    <para>Gets a collection of associations to the object.</para>
         /// </summary>
@@ -1344,9 +1305,6 @@ namespace System.Management
         }
 
 
-        //*******************************************************************
-        //GetRelationships
-        //*******************************************************************
         /// <summary>
         ///    <para>Gets a collection of associations to the object.</para>
         /// </summary>
@@ -1420,9 +1378,6 @@ namespace System.Management
             }
         }
 
-        //******************************************************
-        //Put
-        //******************************************************
         /// <overload>
         ///    Commits the changes to the object.
         /// </overload>
@@ -1439,9 +1394,6 @@ namespace System.Management
         }
 
 
-        //******************************************************
-        //Put
-        //******************************************************
         /// <summary>
         ///    <para>Commits the changes to the object.</para>
         /// </summary>
@@ -1683,9 +1635,6 @@ namespace System.Management
             }
         }
 
-        //******************************************************
-        //CopyTo
-        //******************************************************
         /// <overload>
         ///    Copies the object to a different location.
         /// </overload>
@@ -1923,9 +1872,6 @@ namespace System.Management
             }
         }
 
-        //******************************************************
-        //Delete
-        //******************************************************
         /// <overload>
         ///    Deletes the object.
         /// </overload>
@@ -2056,9 +2002,6 @@ namespace System.Management
             }
         }
 
-        //******************************************************
-        //InvokeMethod
-        //******************************************************
         /// <overload>
         ///    <para>Invokes a method on the object.</para>
         /// </overload>
@@ -2156,9 +2099,6 @@ namespace System.Management
             return result;
         }
 
-        //******************************************************
-        //InvokeMethod
-        //******************************************************
         /// <summary>
         ///    <para>Invokes a method on the object, asynchronously.</para>
         /// </summary>
@@ -2389,9 +2329,6 @@ namespace System.Management
             }
         }
 
-        //******************************************************
-        //GetMethodParameters
-        //******************************************************
         /// <summary>
         /// <para>Returns a <see cref='System.Management.ManagementBaseObject'/> representing the list of input parameters for a method.</para>
         /// </summary>
@@ -2511,9 +2448,6 @@ namespace System.Management
             return ManagementObject.GetManagementObject(theClone, this);
         }
 
-        //******************************************************
-        //ToString
-        //******************************************************
         /// <summary>
         ///    <para>Returns the full path of the object. This is an override of the
         ///       default object implementation.</para>

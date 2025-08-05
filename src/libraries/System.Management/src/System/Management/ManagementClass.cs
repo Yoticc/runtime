@@ -396,9 +396,6 @@ namespace System.Management
         //Methods
         //
 
-        //******************************************************
-        //GetInstances
-        //******************************************************
         /// <overload>
         ///    Returns the collection of
         ///    all instances of the class.
@@ -620,9 +617,6 @@ namespace System.Management
             }
         }
 
-        //******************************************************
-        //GetSubclasses
-        //******************************************************
         /// <overload>
         ///    Returns the collection of
         ///    all derived classes for the class.
@@ -772,9 +766,6 @@ namespace System.Management
             }
         }
 
-        //******************************************************
-        //Derive
-        //******************************************************
         /// <summary>
         ///    <para>Derives a new class from this class.</para>
         /// </summary>
@@ -852,9 +843,6 @@ namespace System.Management
             return newClass;
         }
 
-        //******************************************************
-        //CreateInstance
-        //******************************************************
         /// <summary>
         ///    <para>Creates a new instance of the WMI class.</para>
         /// </summary>
@@ -936,9 +924,6 @@ namespace System.Management
         }
 
 
-        //******************************************************
-        //GetRelatedClasses
-        //******************************************************
         /// <overload>
         ///    Retrieves classes related
         ///    to the WMI class.
@@ -1166,9 +1151,6 @@ namespace System.Management
             }
         }
 
-        //******************************************************
-        //GetRelationshipClasses
-        //******************************************************
         /// <overload>
         ///    Retrieves relationship
         ///    classes that relate the class to others.

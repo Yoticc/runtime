@@ -466,9 +466,6 @@ namespace System.Management
         }
 
 
-        //********************************************
-        //Start
-        //********************************************
         /// <summary>
         ///    <para>Subscribes to events with the given query and delivers
         ///       them, asynchronously, through the <see cref='System.Management.ManagementEventWatcher.EventArrived'/> event.</para>
@@ -523,9 +520,6 @@ namespace System.Management
             }
         }
 
-        //********************************************
-        //Stop
-        //********************************************
         /// <summary>
         ///    <para>Cancels the subscription whether it is synchronous or asynchronous.</para>
         /// </summary>
